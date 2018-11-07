@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 var mongoose = require('mongoose');
 var Trajet = mongoose.model('Trajet');
-const Ville = mongoose.model('Ville');
+//const Ville = mongoose.model('Ville');
 
 module.exports.addTrajet = (req, res) => {
 
@@ -12,7 +12,7 @@ module.exports.addTrajet = (req, res) => {
     trajet.idConducteur = req.body.idConducteur; 
     trajet.date = req.body.date; 
 
-    Ville.findOne({ nom:req.body.villeDepart}, (err, ville) => {
+    /*Ville.findOne({ nom:req.body.villeDepart}, (err, ville) => {
         if (err){
             res.json({success:false, msg:'error'}); 
         }
@@ -37,6 +37,6 @@ module.exports.addTrajet = (req, res) => {
         }
         else 
             res.json({success : false, msg : "Departure not found"}); 
-    });
+    });*/
 
 };

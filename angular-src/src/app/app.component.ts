@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import 'hammerjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Travel Express';
+  constructor(public auth: AuthenticationService) {}
 }

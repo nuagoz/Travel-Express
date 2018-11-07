@@ -1,0 +1,71 @@
+<div id="registercontainer" class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <header class="text-center card-header">
+            <!--<a routerLink="/login" class="float-right btn btn-outline-primary mt-1">Connexion</a>-->
+            <h4 class="card-title mt-2">Inscription</h4>
+          </header>
+          <article class="card-body">
+            <div *ngIf="formError" id="registermsg" class="alert alert-danger" role="alert">
+              <b>Erreur : </b> {{ msgError }}
+            </div>
+            <form (submit)="register()">
+              <div class="form-row">
+                <div class="col">
+                  <div class="md-form">
+                    <input mdbInputDirective [mdbValidate]="false" type="text" id="form_prenom" class="form-control" name="prenom" [(ngModel)]="credentials.prenom">
+                    <label for="form_prenom">Prénom</label>
+                  </div>
+                </div>
+                <!-- form-group end.// -->
+                <div class="col">
+                  <div class="md-form">
+                    <input mdbInputDirective [mdbValidate]="false" type="text" id="form_nom" class="form-control" name="nom" [(ngModel)]="credentials.nom">
+                    <label for="form_nom" class="">Nom</label>
+                  </div>
+                </div>
+                <!-- form-group end.// -->
+              </div>
+              <!-- form-row end.// -->
+              <div class="form-group">
+                <div class="md-form nomargin">
+                  <input mdbInputDirective [mdbValidate]="false" data-error="Mauvais format d'email" type="email" id="form_mail" class="form-control" name="mail" [(ngModel)]="credentials.mail">
+                  <label for="form_mail">E-mail</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="md-form nomargin">
+                  <input mdbInputDirective [mdbValidate]="false" type="text" id="form_tel" class="form-control" name="tel" [(ngModel)]="credentials.tel">
+                  <label for="form_tel" class="">Téléphone</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="md-form">
+                  <input mdbInputDirective [mdbValidate]="false" type="password" id="form_mdp1" class="form-control" name="password1" [(ngModel)]="credentials.password1">
+                  <label for="form_mdp1" class="">Mot de passe</label>
+                </div>
+              </div>
+              <!-- form-group end.// -->
+              <div class="form-group">
+                <div class="md-form">
+                  <input mdbInputDirective [mdbValidate]="false" type="password" id="form_mdp2" class="form-control" name="password2" [(ngModel)]="credentials.password2">
+                  <label for="form_mdp2" class="">Retapez le mot de passe</label>
+                </div>
+              </div>
+              <!-- form-group end.// -->
+              <div class="form-group">
+                <button mdbBtn type="submit" color="info" class="waves-light btn btn-block" mdbWavesEffect>Valider</button>
+              </div>
+              <!-- form-group// -->      
+            </form>
+          </article>
+          <!-- card-body end .// -->
+          <div class="border-top card-body text-center">Have an account? <a href="">Log In</a></div>
+        </div>
+        <!-- card.// -->
+      </div>
+      <!-- col.//-->
+    </div>
+    <!-- row.//-->
+  </div>

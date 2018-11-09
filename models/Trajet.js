@@ -29,8 +29,12 @@ let TrajetSchema = mongoose.Schema({
     tarif : {
         type : String, 
         required : true
-    }
+    },
 
+    heureDepart : {
+        type : String, 
+        required : true
+    }
 });
 
 module.exports = mongoose.model('Trajet', TrajetSchema);

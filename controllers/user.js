@@ -3,6 +3,8 @@ const router = express.Router();
 var passport = require('passport');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+const Trajet = mongoose.model('Trajet');
+const Reservation = mongoose.model('Reservation');
 
 module.exports.login = (req, res) => {
     passport.authenticate('local', (err, user, info) => {
@@ -89,6 +91,35 @@ module.exports.getUser = (req, res) => {
         });
     }
 };
+
+module.exports.board = (req,res) => {
+
+    if(!req.payload._id) // pas d'ID utilisateur existe dans le JWT
+        res.status(401).json({ message: "UnauthorizedError: private profile" });
+    else {
+        User.findById(req.payload._id, (err,user) => {
+            if (err)
+                res.json({success:false, msg:'error'}); 
+            if (!user)
+                res.json({succes:false, msg:'User not found'}); 
+            else {
+                Trajet.find({idConducteur:user._id}, (err, trajetsProposes) => {
+                    if (err)
+                        res.json({success:false, msg:'error'});
+                    Reservation.find({idPassager:user._id}, (err, trajetsReserves) => {
+                        if (err) 
+                            res.json({succes:false, msg: 'error'}); 
+                        res.json({success:true, trajetsProposes: trajetsProposes, trajetsReserves:trajetsReserves});
+                    })
+                    
+                })
+            }
+        
+
+        }); 
+    }
+    
+}
 
 router.delete('/:id', (req, res, next) => {
     res.send("DELETE id");

@@ -16,6 +16,8 @@ let UserSchema = mongoose.Schema({
         required: true
     },
     tel:String,
+    prefFumeur : String, 
+    prefAnimaux : String,
     hash:String,
     salt:String
 });

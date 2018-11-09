@@ -15,5 +15,6 @@ router.get('/profile', auth, userController.getUser);
 router.post('/trajet', trajetController.addTrajet);
 router.post('/search', trajetController.search);
 router.get('/board', auth, userController.board); 
+router.post('/reservation', auth, trajetController.reservation);
 
 module.exports = router;

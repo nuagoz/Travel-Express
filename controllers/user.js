@@ -102,7 +102,7 @@ module.exports.board = (req,res) => {
             if (err)
                 res.json({success:false, msg:'error'}); 
             if (!user)
-                res.json({succes:false, msg:'User not found'}); 
+                res.json({success:false, msg:'User not found'}); 
             else {
                 Trajet.find({idConducteur:user._id}, (err, trajetsProposes) => {
                     if (err)

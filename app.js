@@ -10,6 +10,7 @@ const passport = require('passport');
 require('./models/User');
 require('./models/City');
 require('./models/Trajet');
+require('./models/Reservation');
 // ...
 require('./config/passport');
 

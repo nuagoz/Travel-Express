@@ -19,6 +19,16 @@ let TrajetSchema = mongoose.Schema({
     idVilleArrivee : {
         type : String, 
         required : true
+    },
+
+    nbPlaces : {
+        type : String, 
+        required : true
+    }, 
+
+    tarif : {
+        type : String, 
+        required : true
     }
 
 });

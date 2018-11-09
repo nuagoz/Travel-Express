@@ -2,15 +2,22 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 var mongoose = require('mongoose');
+<<<<<<< Updated upstream
 var Trajet = mongoose.model('Trajet');
 //const Ville = mongoose.model('Ville');
+=======
+const Trajet = mongoose.model('Trajet');
+const Ville = mongoose.model('City');
+>>>>>>> Stashed changes
 
 module.exports.addTrajet = (req, res) => {
 
     let trajet = new Trajet(); 
 
     trajet.idConducteur = req.body.idConducteur; 
-    trajet.date = req.body.date; 
+    trajet.date = req.body.date;
+    trajet.nbPlaces = req.body.nbPlaces; 
+    trajet.tarif = req.body.tarif;
 
     /*Ville.findOne({ nom:req.body.villeDepart}, (err, ville) => {
         if (err){

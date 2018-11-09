@@ -3,12 +3,13 @@ const router = express.Router();
 const passport = require('passport');
 var mongoose = require('mongoose');
 var Trajet = mongoose.model('Trajet');
-const Ville = mongoose.model('City');
-const City = mongoose.model('City');
+var Ville = mongoose.model('City');
+
 
 module.exports.addTrajet = (req, res) => {
 
     let trajet = new Trajet(); 
+    console.log(req.body);
 
     trajet.idConducteur = req.body.idConducteur; 
     trajet.date = req.body.date;
@@ -17,7 +18,7 @@ module.exports.addTrajet = (req, res) => {
     trajet.heureDepart = req.body.heureDepart;
 
 
-    Ville.findOne({ nom:depart}, (err, villedep) => {
+    Ville.findOne({nom:req.body.villeDepart}, (err, villedep) => {
         if (err){
             res.json({success:false, msg:'error'}); 
         }
@@ -48,24 +49,29 @@ module.exports.addTrajet = (req, res) => {
 
 module.exports.search = (req, res) => {
 
-    res.json({test: req.body.date});
+    console.log(req.body);
 
     Ville.findOne({nom:req.body.villeDepart}, (err, villedep) => {
         if (err)
-            res.json({success:false, msg:'error'}); 
+            res.json({success:false, msg:'error 1'}); 
+
+        
 
         if (!villedep)
             res.json({success:false, msg:'Departure not found'}); 
+        
         else {
+            idDepart = villedep._id;
             Ville.findOne({nom:req.body.villeArrivee}, (err,villearrivee) => {
                 if (err)
-                    res.json({success:false, msg : 'error'}); 
+                    res.json({success:false, msg : 'error 2'}); 
                 if (!villearrivee)
                     res.json({success:false, msg:'Arrival not found'}); 
                 else {
-                    Trajet.find({idVilleDepart:villedep._id, idVilleArrivee:villearrivee, date:req.body.date}, (err, trajets) => {
+                    
+                    Trajet.find({idVilleDepart : villedep._id , idVilleArrivee:villearrivee._id, date:req.body.date}, (err, trajets) => {
                         if (err)
-                            res.json({succes:false, msg:'error'}); 
+                            res.json({succes:false, msg:'error 3'}); 
                         if (!trajets)
                             res.json({succes:false, msg:'No trajets founds'}); 
                         else 

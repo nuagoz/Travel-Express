@@ -77,3 +77,28 @@
     width: 25%;
   }
 }
+.prix {
+	float:right;
+}
+.heuredep {
+	display: inline-block;
+	margin-right: 10px;
+}
+.heurearr {
+	display: inline-block;
+	margin-right: 10px;
+}
+.villedepart {
+	display: inline-block;
+	font-weight: 800;
+}
+.villearrivee {
+	display: inline-block;
+	font-weight: 800;
+}
+.seatsleft {
+	position: absolute;
+	bottom: 30px;
+	text-align: center;
+	width:100%;
+}

@@ -9,7 +9,7 @@ import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { MatDatepickerModule, MatNativeDateModule, MatInputModule } from '@angular/material';
+import { MatDatepickerModule, MatNativeDateModule, MatInputModule, MatCardModule } from '@angular/material';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
@@ -48,7 +48,8 @@ import { AuthenticationService } from './services/authentication.service';
     MatNativeDateModule,
     MatDatepickerModule,
     MatAutocompleteModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [

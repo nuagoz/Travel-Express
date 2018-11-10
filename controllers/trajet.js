@@ -2,9 +2,8 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 var mongoose = require('mongoose');
-var Trajet = mongoose.model('Trajet');
-var Ville = mongoose.model('City');
-
+const Trajet = mongoose.model('Trajet');
+const Ville = mongoose.model('City');
 
 module.exports.addTrajet = (req, res) => {
 

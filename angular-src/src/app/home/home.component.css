@@ -102,3 +102,7 @@
 	text-align: center;
 	width:100%;
 }
+#search_form {
+	display:inherit!important;
+	width:100%;
+}

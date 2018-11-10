@@ -12,17 +12,21 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatDatepickerModule, MatNativeDateModule, MatInputModule, MatCardModule } from '@angular/material';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
-
+/* Components */
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { PublishComponent } from './publish/publish.component';
 
 /* Services */
 import { UserService } from './services/user.service';
 import { AuthenticationService } from './services/authentication.service';
+import { TrajetService } from './services/trajet.service';
+import { CityService } from './services/city.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { AuthenticationService } from './services/authentication.service';
     HomeComponent,
     NavbarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PublishComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,10 @@ import { AuthenticationService } from './services/authentication.service';
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     UserService,
-    AuthenticationService
+    AuthenticationService,
+    TrajetService,
+    CityService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

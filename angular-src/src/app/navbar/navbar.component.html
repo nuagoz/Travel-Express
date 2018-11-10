@@ -7,6 +7,9 @@
           <li routerLinkActive="active" class="nav-item">
               <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect>Home </a>
           </li>
+          <li *ngIf="auth.isLoggedIn()" routerLinkActive="active" class="nav-item">
+                <a routerLink="/publish" class="nav-link waves-light" mdbWavesEffect><i class="fa fa-sign-in"></i> Proposer un trajet</a>
+          </li>
           <li *ngIf="!auth.isLoggedIn()" routerLinkActive="active" class="nav-item">
             <a routerLink="/register" class="nav-link waves-light" mdbWavesEffect><i class="fa fa-user-plus"></i> Inscription</a>
           </li>

@@ -41,7 +41,7 @@ export class AuthenticationService {
     this.token = token;
   }
 
-  private getToken(): string {
+  public getToken(): string {
     if(!this.token)
       this.token = localStorage.getItem('mean-token');
     

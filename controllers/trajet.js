@@ -11,32 +11,38 @@ module.exports.addTrajet = (req, res) => {
 
     let trajet = new Trajet(); 
     console.log(req.body);
-
-    trajet.idConducteur = req.body.idConducteur; 
+    
     trajet.date = req.body.date;
     trajet.nbPlaces = req.body.nbPlaces; 
     trajet.tarif = req.body.tarif;
     trajet.heureDepart = req.body.heureDepart;
-
+    trajet.heureArrivee = req.body.heureArrivee;
+    trajet.idConducteur = req.body.idConducteur;
 
     Ville.findOne({nom:req.body.villeDepart}, (err, villedep) => {
+        console.log("Ville findone1")
         if (err){
             res.json({success:false, msg:'error'}); 
         }
         if(villedep){
+            console.log("Ville OK");
             trajet.idVilleDepart = villedep._id;
             Ville.findOne({nom:req.body.villeArrivee}, (err, villearr) => {
+                console.log("Ville findone2")
                 if (err){
                     res.json({success:false, msg:'error'}); 
                 }
                 if (villearr){
+                    console.log("Ville 2 OK");
                     trajet.idVilleArrivee = villearr._id;
                     trajet.save(err => {
                         if (err){
+                            console.log("ERR !!", err);
                             res.json({success:false, msg:`Failed to add trajet`});
                         }
-                        res.json({success:true, trajet : trajet});
-                    })
+                        res.json({success:true});
+                        //res.json({success:true, trajet : trajet});
+                    });
                 }
                 
                 else

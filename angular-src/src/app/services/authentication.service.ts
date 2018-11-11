@@ -42,9 +42,10 @@ export class AuthenticationService {
   }
 
   public getToken(): string {
+    console.log("Call get Token : " + this.token);
     if(!this.token)
       this.token = localStorage.getItem('mean-token');
-    
+    console.log("Token = " + localStorage.getItem('mean-token'));
     return this.token;
   }
 

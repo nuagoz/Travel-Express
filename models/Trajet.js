@@ -34,6 +34,10 @@ let TrajetSchema = mongoose.Schema({
     heureDepart : {
         type : String, 
         required : true
+    },
+    heureArrivee: {
+        type: String,
+        required:true
     }
 });
 

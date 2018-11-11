@@ -9,10 +9,10 @@
             <div *ngIf="formError" id="registermsg" class="alert alert-danger" role="alert">
               <b>Erreur : </b> {{ msgError }}
             </div>
-            <form (submit)="register()">
+            <form (ngSubmit)="addTrajet()">
               <div class="form-row">
                 <div class="col">
-                  <mat-form-field class="example-full-width">
+                  <mat-form-field class="fullwidth">
                       <input type="text" placeholder="Départ" aria-label="Départ" matInput name="villeDepart" [(ngModel)]="formDatas.villeDepart" [formControl]="myControl" [matAutocomplete]="auto">
                       <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
                         <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
@@ -23,7 +23,7 @@
                 </div>
                 <!-- form-group end.// -->
                 <div class="col">
-                    <mat-form-field class="example-full-width">
+                    <mat-form-field class="fullwidth">
                         <input type="text" placeholder="Destination" aria-label="Destination" matInput name="villeArrivee" [(ngModel)]="formDatas.villeArrivee" [formControl]="myControl2" [matAutocomplete]="auto2">
                         <mat-autocomplete #auto2="matAutocomplete" [displayWith]="displayFn">
                           <mat-option *ngFor="let option2 of filteredOptions2 | async" [value]="option2">
@@ -37,41 +37,47 @@
               <!-- form-row end.// -->
               <div class="form-group">
                 <div class="md-form nomargin">
-                    <mat-form-field class="fullwidth">
-                        <input matInput [matDatepicker]="picker" placeholder="Date" name="date" [(ngModel)]="formDatas.date">
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
-                      </mat-form-field>
+                  <mat-form-field class="fullwidth">
+                    <input matInput [matDatepicker]="picker" placeholder="Date" name="date" [(ngModel)]="formDatas.date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
                 </div>
               </div>
               <div class="form-group">
                 <div class="md-form nomargin">
-                  <input mdbInputDirective [mdbValidate]="false" type="text" id="form_tel" class="form-control" name="tel">
-                  <label for="form_tel" class="">Téléphone</label>
+                    <button type="button" class="iconbutton" (click)="openDepart()" mat-raised-button color="primary"><i class="fa fa-clock-o" aria-hidden="true"></i></button>
+                    <mat-form-field class="fullwidth">
+                        <input matInput placeholder="Heure de départ" name="heureDepart" [(ngModel)]="formDatas.heureDepart">
+                      </mat-form-field>
                 </div>
               </div>
               <div class="form-group">
-                <div class="md-form">
-                  <input mdbInputDirective [mdbValidate]="false" type="password" id="form_mdp1" class="form-control" name="password1">
-                  <label for="form_mdp1" class="">Mot de passe</label>
-                </div>
-              </div>
-              <!-- form-group end.// -->
-              <div class="form-group">
-                <div class="md-form">
-                  <input mdbInputDirective [mdbValidate]="false" type="password" id="form_mdp2" class="form-control" name="password2">
-                  <label for="form_mdp2" class="">Retapez le mot de passe</label>
-                </div>
+                  <div class="md-form nomargin">
+                      <button type="button" class="iconbutton" (click)="openArrivee()" mat-raised-button color="primary"><i class="fa fa-clock-o" aria-hidden="true"></i></button>
+                      <mat-form-field class="fullwidth">
+                        <input matInput placeholder="Heure d'arrivée (estimation)" name="heureArrivee" [(ngModel)]="formDatas.heureArrivee">
+                      </mat-form-field>
+                  </div>
               </div>
               <!-- form-group end.// -->
               <div class="form-group">
-                <button mdbBtn type="submit" color="info" class="waves-light btn btn-block" mdbWavesEffect>Valider</button>
+                  <mat-form-field class="fullwidth">
+                      <input type="number" matInput placeholder="Nombre de places" name="nbPlaces" [(ngModel)]="formDatas.nbPlaces">
+                    </mat-form-field>
+                </div>
+              <div class="form-group">
+                <mat-form-field class="fullwidth">
+                    <input type="number" matInput placeholder="Prix ($CAD)" name="tarif" [(ngModel)]="formDatas.tarif">
+                  </mat-form-field>
+              </div>
+              <!-- form-group end.// -->
+              <div class="form-group">
+                <button mdbBtn type="submit" color="info" class="waves-light btn btn-block" mdbWavesEffect>Valider le trajet</button>
               </div>
               <!-- form-group// -->      
             </form>
           </article>
-          <!-- card-body end .// -->
-          <div class="border-top card-body text-center">Have an account? <a href="">Log In</a></div>
         </div>
         <!-- card.// -->
       </div>

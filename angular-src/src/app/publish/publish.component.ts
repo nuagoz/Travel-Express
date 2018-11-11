@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { TrajetService, Trajet } from '../services/trajet.service';
 import { CityService, City } from '../services/city.service';
+import { AmazingTimePickerService } from 'amazing-time-picker';
 
 @Component({
   selector: 'app-publish',
@@ -20,12 +21,11 @@ export class PublishComponent implements OnInit {
   filteredOptions2: Observable<City[]>;
 
   formDatas: Trajet = {
-    villeDepart: '',
-    villeArrivee: '',
-    date: ''
+    villeDepart:'',
+    villeArrivee:''
   };
 
-  constructor(private trajetserv: TrajetService, private cityserv: CityService) { }
+  constructor(private trajetserv: TrajetService, private cityserv: CityService, private atp: AmazingTimePickerService) { }
 
   ngOnInit() {
     this.cityserv.getCities().subscribe(res => {
@@ -56,4 +56,36 @@ export class PublishComponent implements OnInit {
     return this.options.filter(option => option.nom.toLowerCase().indexOf(filterValue) === 0);
   }
 
+  openDepart() {
+    const amazingTimePicker = this.atp.open({
+        theme: 'material-blue',
+    });
+    amazingTimePicker.afterClose().subscribe(time => {
+        this.formDatas.heureDepart = time;
+    });
+  }
+  openArrivee() {
+    const amazingTimePicker = this.atp.open({
+        theme: 'material-blue',
+    });
+    amazingTimePicker.afterClose().subscribe(time => {
+        this.formDatas.heureArrivee = time;
+    });
+  }
+
+  addTrajet() {
+    console.log(this.formDatas);
+    if(this.formDatas.villeDepart.nom)
+      this.formDatas.villeDepart = this.formDatas.villeDepart.nom;
+
+    if(this.formDatas.villeArrivee.nom)
+      this.formDatas.villeArrivee = this.formDatas.villeArrivee.nom;
+
+    this.trajetserv.addTrajet(this.formDatas).subscribe(res => {
+      console.log("OK ! ", res);
+      if(res.success === false) {
+
+      }
+    });
+  }
 }

@@ -446,24 +446,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/autocomplete */ "./node_modules/@angular/material/esm5/autocomplete.es5.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
-/* harmony import */ var _publish_publish_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./publish/publish.component */ "./src/app/publish/publish.component.ts");
-/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/user.service */ "./src/app/services/user.service.ts");
-/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./services/authentication.service */ "./src/app/services/authentication.service.ts");
-/* harmony import */ var _services_trajet_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./services/trajet.service */ "./src/app/services/trajet.service.ts");
-/* harmony import */ var _services_city_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./services/city.service */ "./src/app/services/city.service.ts");
-/* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
+/* harmony import */ var amazing_time_picker__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! amazing-time-picker */ "./node_modules/amazing-time-picker/amazing-time-picker.es5.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
+/* harmony import */ var _publish_publish_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./publish/publish.component */ "./src/app/publish/publish.component.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _services_trajet_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./services/trajet.service */ "./src/app/services/trajet.service.ts");
+/* harmony import */ var _services_city_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/city.service */ "./src/app/services/city.service.ts");
+/* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -497,12 +499,12 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_13__["AppComponent"],
-                _home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"],
-                _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_16__["NavbarComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_17__["LoginComponent"],
-                _register_register_component__WEBPACK_IMPORTED_MODULE_18__["RegisterComponent"],
-                _publish_publish_component__WEBPACK_IMPORTED_MODULE_19__["PublishComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_14__["AppComponent"],
+                _home_home_component__WEBPACK_IMPORTED_MODULE_15__["HomeComponent"],
+                _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_17__["NavbarComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_18__["LoginComponent"],
+                _register_register_component__WEBPACK_IMPORTED_MODULE_19__["RegisterComponent"],
+                _publish_publish_component__WEBPACK_IMPORTED_MODULE_20__["PublishComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -510,7 +512,7 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_4__["MDBBootstrapModule"].forRoot(),
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_15__["AppRoutingModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_16__["AppRoutingModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
                 _ngx_loading_bar_http_client__WEBPACK_IMPORTED_MODULE_6__["LoadingBarHttpClientModule"],
                 _ngx_loading_bar_http__WEBPACK_IMPORTED_MODULE_7__["LoadingBarHttpModule"],
@@ -521,17 +523,19 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatDatepickerModule"],
                 _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_12__["MatAutocompleteModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatInputModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatCardModule"]
+                _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatButtonModule"],
+                amazing_time_picker__WEBPACK_IMPORTED_MODULE_13__["AmazingTimePickerModule"]
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NO_ERRORS_SCHEMA"]],
             providers: [
-                _services_user_service__WEBPACK_IMPORTED_MODULE_20__["UserService"],
-                _services_authentication_service__WEBPACK_IMPORTED_MODULE_21__["AuthenticationService"],
-                _services_trajet_service__WEBPACK_IMPORTED_MODULE_22__["TrajetService"],
-                _services_city_service__WEBPACK_IMPORTED_MODULE_23__["CityService"],
-                _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_24__["AuthGuardService"]
+                _services_user_service__WEBPACK_IMPORTED_MODULE_21__["UserService"],
+                _services_authentication_service__WEBPACK_IMPORTED_MODULE_22__["AuthenticationService"],
+                _services_trajet_service__WEBPACK_IMPORTED_MODULE_23__["TrajetService"],
+                _services_city_service__WEBPACK_IMPORTED_MODULE_24__["CityService"],
+                _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_25__["AuthGuardService"]
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_13__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_14__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -814,7 +818,7 @@ var NavbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"registercontainer\" class=\"container\">\n    <div class=\"row justify-content-center\">\n      <div class=\"col-lg-6 col-md-8 col-xs-12 col-sm-10\">\n        <div class=\"card\">\n          <header class=\"text-center card-header\">\n            <h4 class=\"card-title mt-2\">Proposer un trajet</h4>\n          </header>\n          <article class=\"card-body\">\n            <div *ngIf=\"formError\" id=\"registermsg\" class=\"alert alert-danger\" role=\"alert\">\n              <b>Erreur : </b> {{ msgError }}\n            </div>\n            <form (submit)=\"register()\">\n              <div class=\"form-row\">\n                <div class=\"col\">\n                  <mat-form-field class=\"example-full-width\">\n                      <input type=\"text\" placeholder=\"Départ\" aria-label=\"Départ\" matInput name=\"villeDepart\" [(ngModel)]=\"formDatas.villeDepart\" [formControl]=\"myControl\" [matAutocomplete]=\"auto\">\n                      <mat-autocomplete #auto=\"matAutocomplete\" [displayWith]=\"displayFn\">\n                        <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\n                        {{option.nom}}\n                        </mat-option>\n                      </mat-autocomplete>\n                    </mat-form-field>\n                </div>\n                <!-- form-group end.// -->\n                <div class=\"col\">\n                    <mat-form-field class=\"example-full-width\">\n                        <input type=\"text\" placeholder=\"Destination\" aria-label=\"Destination\" matInput name=\"villeArrivee\" [(ngModel)]=\"formDatas.villeArrivee\" [formControl]=\"myControl2\" [matAutocomplete]=\"auto2\">\n                        <mat-autocomplete #auto2=\"matAutocomplete\" [displayWith]=\"displayFn\">\n                          <mat-option *ngFor=\"let option2 of filteredOptions2 | async\" [value]=\"option2\">\n                          {{option2.nom}}\n                          </mat-option>\n                        </mat-autocomplete>\n                      </mat-form-field>\n                </div>\n                <!-- form-group end.// -->\n              </div>\n              <!-- form-row end.// -->\n              <div class=\"form-group\">\n                <div class=\"md-form nomargin\">\n                    <mat-form-field class=\"fullwidth\">\n                        <input matInput [matDatepicker]=\"picker\" placeholder=\"Date\" name=\"date\" [(ngModel)]=\"formDatas.date\">\n                        <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n                        <mat-datepicker #picker></mat-datepicker>\n                      </mat-form-field>\n                </div>\n              </div>\n              <div class=\"form-group\">\n                <div class=\"md-form nomargin\">\n                  <input mdbInputDirective [mdbValidate]=\"false\" type=\"text\" id=\"form_tel\" class=\"form-control\" name=\"tel\">\n                  <label for=\"form_tel\" class=\"\">Téléphone</label>\n                </div>\n              </div>\n              <div class=\"form-group\">\n                <div class=\"md-form\">\n                  <input mdbInputDirective [mdbValidate]=\"false\" type=\"password\" id=\"form_mdp1\" class=\"form-control\" name=\"password1\">\n                  <label for=\"form_mdp1\" class=\"\">Mot de passe</label>\n                </div>\n              </div>\n              <!-- form-group end.// -->\n              <div class=\"form-group\">\n                <div class=\"md-form\">\n                  <input mdbInputDirective [mdbValidate]=\"false\" type=\"password\" id=\"form_mdp2\" class=\"form-control\" name=\"password2\">\n                  <label for=\"form_mdp2\" class=\"\">Retapez le mot de passe</label>\n                </div>\n              </div>\n              <!-- form-group end.// -->\n              <div class=\"form-group\">\n                <button mdbBtn type=\"submit\" color=\"info\" class=\"waves-light btn btn-block\" mdbWavesEffect>Valider</button>\n              </div>\n              <!-- form-group// -->      \n            </form>\n          </article>\n          <!-- card-body end .// -->\n          <div class=\"border-top card-body text-center\">Have an account? <a href=\"\">Log In</a></div>\n        </div>\n        <!-- card.// -->\n      </div>\n      <!-- col.//-->\n    </div>\n    <!-- row.//-->\n  </div>"
+module.exports = "<div id=\"registercontainer\" class=\"container\">\n    <div class=\"row justify-content-center\">\n      <div class=\"col-lg-6 col-md-8 col-xs-12 col-sm-10\">\n        <div class=\"card\">\n          <header class=\"text-center card-header\">\n            <h4 class=\"card-title mt-2\">Proposer un trajet</h4>\n          </header>\n          <article class=\"card-body\">\n            <div *ngIf=\"formError\" id=\"registermsg\" class=\"alert alert-danger\" role=\"alert\">\n              <b>Erreur : </b> {{ msgError }}\n            </div>\n            <form (ngSubmit)=\"addTrajet()\">\n              <div class=\"form-row\">\n                <div class=\"col\">\n                  <mat-form-field class=\"fullwidth\">\n                      <input type=\"text\" placeholder=\"Départ\" aria-label=\"Départ\" matInput name=\"villeDepart\" [(ngModel)]=\"formDatas.villeDepart\" [formControl]=\"myControl\" [matAutocomplete]=\"auto\">\n                      <mat-autocomplete #auto=\"matAutocomplete\" [displayWith]=\"displayFn\">\n                        <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\n                        {{option.nom}}\n                        </mat-option>\n                      </mat-autocomplete>\n                    </mat-form-field>\n                </div>\n                <!-- form-group end.// -->\n                <div class=\"col\">\n                    <mat-form-field class=\"fullwidth\">\n                        <input type=\"text\" placeholder=\"Destination\" aria-label=\"Destination\" matInput name=\"villeArrivee\" [(ngModel)]=\"formDatas.villeArrivee\" [formControl]=\"myControl2\" [matAutocomplete]=\"auto2\">\n                        <mat-autocomplete #auto2=\"matAutocomplete\" [displayWith]=\"displayFn\">\n                          <mat-option *ngFor=\"let option2 of filteredOptions2 | async\" [value]=\"option2\">\n                          {{option2.nom}}\n                          </mat-option>\n                        </mat-autocomplete>\n                      </mat-form-field>\n                </div>\n                <!-- form-group end.// -->\n              </div>\n              <!-- form-row end.// -->\n              <div class=\"form-group\">\n                <div class=\"md-form nomargin\">\n                  <mat-form-field class=\"fullwidth\">\n                    <input matInput [matDatepicker]=\"picker\" placeholder=\"Date\" name=\"date\" [(ngModel)]=\"formDatas.date\">\n                    <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n                    <mat-datepicker #picker></mat-datepicker>\n                  </mat-form-field>\n                </div>\n              </div>\n              <div class=\"form-group\">\n                <div class=\"md-form nomargin\">\n                    <button type=\"button\" class=\"iconbutton\" (click)=\"openDepart()\" mat-raised-button color=\"primary\"><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i></button>\n                    <mat-form-field class=\"fullwidth\">\n                        <input matInput placeholder=\"Heure de départ\" name=\"heureDepart\" [(ngModel)]=\"formDatas.heureDepart\">\n                      </mat-form-field>\n                </div>\n              </div>\n              <div class=\"form-group\">\n                  <div class=\"md-form nomargin\">\n                      <button type=\"button\" class=\"iconbutton\" (click)=\"openArrivee()\" mat-raised-button color=\"primary\"><i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i></button>\n                      <mat-form-field class=\"fullwidth\">\n                        <input matInput placeholder=\"Heure d'arrivée (estimation)\" name=\"heureArrivee\" [(ngModel)]=\"formDatas.heureArrivee\">\n                      </mat-form-field>\n                  </div>\n              </div>\n              <!-- form-group end.// -->\n              <div class=\"form-group\">\n                  <mat-form-field class=\"fullwidth\">\n                      <input type=\"number\" matInput placeholder=\"Nombre de places\" name=\"nbPlaces\" [(ngModel)]=\"formDatas.nbPlaces\">\n                    </mat-form-field>\n                </div>\n              <div class=\"form-group\">\n                <mat-form-field class=\"fullwidth\">\n                    <input type=\"number\" matInput placeholder=\"Prix ($CAD)\" name=\"tarif\" [(ngModel)]=\"formDatas.tarif\">\n                  </mat-form-field>\n              </div>\n              <!-- form-group end.// -->\n              <div class=\"form-group\">\n                <button mdbBtn type=\"submit\" color=\"info\" class=\"waves-light btn btn-block\" mdbWavesEffect>Valider le trajet</button>\n              </div>\n              <!-- form-group// -->      \n            </form>\n          </article>\n        </div>\n        <!-- card.// -->\n      </div>\n      <!-- col.//-->\n    </div>\n    <!-- row.//-->\n  </div>"
 
 /***/ }),
 
@@ -825,7 +829,7 @@ module.exports = "<div id=\"registercontainer\" class=\"container\">\n    <div c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".nomargin {\n  margin-top: 0px !important; }\n\n#registermsg {\n  margin-bottom: 0px !important; }\n"
+module.exports = ".nomargin {\n  margin-top: 0px !important; }\n\n#registermsg {\n  margin-bottom: 0px !important; }\n\n.iconbutton {\n  position: absolute;\n  right: 0;\n  z-index: 2; }\n"
 
 /***/ }),
 
@@ -844,6 +848,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _services_trajet_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/trajet.service */ "./src/app/services/trajet.service.ts");
 /* harmony import */ var _services_city_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/city.service */ "./src/app/services/city.service.ts");
+/* harmony import */ var amazing_time_picker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! amazing-time-picker */ "./node_modules/amazing-time-picker/amazing-time-picker.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -858,16 +863,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var PublishComponent = /** @class */ (function () {
-    function PublishComponent(trajetserv, cityserv) {
+    function PublishComponent(trajetserv, cityserv, atp) {
         this.trajetserv = trajetserv;
         this.cityserv = cityserv;
+        this.atp = atp;
         this.myControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.myControl2 = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.formDatas = {
             villeDepart: '',
-            villeArrivee: '',
-            date: ''
+            villeArrivee: ''
         };
     }
     PublishComponent.prototype.ngOnInit = function () {
@@ -887,13 +893,43 @@ var PublishComponent = /** @class */ (function () {
         var filterValue = nom.toLowerCase();
         return this.options.filter(function (option) { return option.nom.toLowerCase().indexOf(filterValue) === 0; });
     };
+    PublishComponent.prototype.openDepart = function () {
+        var _this = this;
+        var amazingTimePicker = this.atp.open({
+            theme: 'material-blue',
+        });
+        amazingTimePicker.afterClose().subscribe(function (time) {
+            _this.formDatas.heureDepart = time;
+        });
+    };
+    PublishComponent.prototype.openArrivee = function () {
+        var _this = this;
+        var amazingTimePicker = this.atp.open({
+            theme: 'material-blue',
+        });
+        amazingTimePicker.afterClose().subscribe(function (time) {
+            _this.formDatas.heureArrivee = time;
+        });
+    };
+    PublishComponent.prototype.addTrajet = function () {
+        console.log(this.formDatas);
+        if (this.formDatas.villeDepart.nom)
+            this.formDatas.villeDepart = this.formDatas.villeDepart.nom;
+        if (this.formDatas.villeArrivee.nom)
+            this.formDatas.villeArrivee = this.formDatas.villeArrivee.nom;
+        this.trajetserv.addTrajet(this.formDatas).subscribe(function (res) {
+            console.log("OK ! ", res);
+            if (res.success === false) {
+            }
+        });
+    };
     PublishComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-publish',
             template: __webpack_require__(/*! ./publish.component.html */ "./src/app/publish/publish.component.html"),
             styles: [__webpack_require__(/*! ./publish.component.scss */ "./src/app/publish/publish.component.scss")]
         }),
-        __metadata("design:paramtypes", [_services_trajet_service__WEBPACK_IMPORTED_MODULE_3__["TrajetService"], _services_city_service__WEBPACK_IMPORTED_MODULE_4__["CityService"]])
+        __metadata("design:paramtypes", [_services_trajet_service__WEBPACK_IMPORTED_MODULE_3__["TrajetService"], _services_city_service__WEBPACK_IMPORTED_MODULE_4__["CityService"], amazing_time_picker__WEBPACK_IMPORTED_MODULE_5__["AmazingTimePickerService"]])
     ], PublishComponent);
     return PublishComponent;
 }());
@@ -1091,8 +1127,10 @@ var AuthenticationService = /** @class */ (function () {
         this.token = token;
     };
     AuthenticationService.prototype.getToken = function () {
+        console.log("Call get Token : " + this.token);
         if (!this.token)
             this.token = localStorage.getItem('mean-token');
+        console.log("Token = " + localStorage.getItem('mean-token'));
         return this.token;
     };
     AuthenticationService.prototype.logout = function () {
@@ -1242,6 +1280,10 @@ var TrajetService = /** @class */ (function () {
         if (method === 'post' && type === 'search') {
             base = this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/" + type, trajet);
         }
+        else if (method === 'post' && type === 'trajet') {
+            trajet.idConducteur = this.auth.getUserDetails()._id;
+            base = this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/" + type, trajet, { headers: { Authorization: "Bearer " + this.auth.getToken() } });
+        }
         //base = this.http.post(environment.api + "/" + type, user);
         else
             base = this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/" + type, { headers: { Authorization: "Bearer " + this.auth.getToken() } });
@@ -1254,6 +1296,13 @@ var TrajetService = /** @class */ (function () {
      */
     TrajetService.prototype.search = function (trajet) {
         return this.request('post', 'search', trajet);
+    };
+    /**
+     * Ajoute un trajet créé par le formulaire
+     */
+    TrajetService.prototype.addTrajet = function (trajet) {
+        console.log("-----------------------");
+        return this.request('post', 'trajet', trajet);
     };
     TrajetService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

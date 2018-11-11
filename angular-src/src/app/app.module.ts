@@ -9,8 +9,9 @@ import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { MatDatepickerModule, MatNativeDateModule, MatInputModule, MatCardModule } from '@angular/material';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatDatepickerModule, MatNativeDateModule, MatInputModule, MatCardModule, MatButtonModule } from '@angular/material';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
 
 /* Components */
 import { AppComponent } from './app.component';
@@ -54,7 +55,9 @@ import { AuthGuardService } from './services/auth-guard.service';
     MatDatepickerModule,
     MatAutocompleteModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    AmazingTimePickerModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [

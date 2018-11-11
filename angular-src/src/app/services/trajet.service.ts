@@ -15,6 +15,7 @@ export interface Trajet {
   nbPlaces?: string;
   tarif?: string;
   heureDepart?: string;
+  heureArrivee?: string;
 }
 
 @Injectable({
@@ -27,14 +28,18 @@ export class TrajetService {
   private request(method: 'post'|'get', type:'trajet'|'search', trajet?: Trajet): Observable<any> {
     let base;
 
-    if(method === 'post' && type === 'search'){
+    if(method === 'post' && type === 'search') {
       base = this.http.post(environment.api + "/" + type, trajet);
+    }
+    else if(method === 'post' && type === 'trajet') {
+      trajet.idConducteur = this.auth.getUserDetails()._id;
+      base = this.http.post(environment.api + "/" + type, trajet, { headers: { Authorization: `Bearer ${this.auth.getToken()}`}});
     }
       //base = this.http.post(environment.api + "/" + type, user);
     else
       base = this.http.get(environment.api + "/" + type, { headers: { Authorization: `Bearer ${this.auth.getToken()}`}});
-    const request = base.pipe(map(res => { return res; }));
 
+    const request = base.pipe(map(res => { return res; }));
     return request;
   }
 
@@ -44,6 +49,14 @@ export class TrajetService {
    */
   public search(trajet: Trajet): Observable<any> {
     return this.request('post', 'search', trajet);
+  }
+  
+  /**
+   * Ajoute un trajet créé par le formulaire
+   */
+  public addTrajet(trajet: Trajet): Observable<any> {
+    console.log("-----------------------")
+    return this.request('post', 'trajet', trajet);
   }
 
 }

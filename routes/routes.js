@@ -7,7 +7,7 @@ const cityController = require('../controllers/city');
 const reservationController = require('../controllers/reservation');
 
 const auth = jwt({
-    secret: 'SECRET', // securite : mettre le secret dans une variable d'env.
+    secret: process.env.JWT_SECRET,
     userProperty: 'payload'
 });
 

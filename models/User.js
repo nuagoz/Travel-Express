@@ -68,11 +68,6 @@ UserSchema.methods.generateJwt = function() {
        mail: this.mail,
        tel: this.tel,
        exp: parseInt(expiry.getTime() / 1000)
-    }, "SECRET"); // "SECRET" -> Ne pas laisser dans le code, mettre dans une variable d'env. par exemple
+    }, process.env.JWT_SECRET);
 };
 module.exports = mongoose.model('User', UserSchema);
-/*const User = module.exports = mongoose.model('User', UserSchema);
-
-module.exports.getAllUsers = (cb) => User.find(cb);
-module.exports.addUser = (newUser, cb) => newUser.save(cb);
-module.exports.deleteUserById = (id, cb) => User.remove({_id:id}, cb);*/

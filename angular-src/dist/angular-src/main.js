@@ -1803,7 +1803,7 @@ __webpack_require__.r(__webpack_exports__);
 };*/
 var environment = {
     production: true,
-    api: 'https://travel-express-project.herokuapp.com'
+    api: 'https://travel-express-project.herokuapp.com/api'
 };
 /*
  * For easier debugging in development mode, you can import the following file

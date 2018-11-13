@@ -2,14 +2,14 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-/*export const environment = {
+export const environment = {
   production: false,
   api: 'http://localhost:3000/api'
-};*/
-export const environment = {
+};
+/*export const environment = {
   production: true,
   api: 'https://travel-express-project.herokuapp.com/api'
-}
+}*/
 
 
 /*

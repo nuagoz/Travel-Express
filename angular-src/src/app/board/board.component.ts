@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import * as _ from 'lodash';
 import * as moment from 'moment';
 
 @Component({
@@ -20,22 +19,24 @@ export class BoardComponent implements OnInit {
 
   isLoaded = false;
   displayedColumns: string[] = ['depart', 'destination', 'heuredep', 'heurearr', 'date', 'places', 'prix', 'action'];
-  dataSource:any;
+  dataSourceReservation:any;
+  dataSourcePublication:any;
 
   constructor(private userService: UserService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.userService.getBoard().subscribe(response => {
       if(response.success === true) {
-        console.log(response);
         this.isLoaded = true;
         this.fumeur = response.user.prefFumeur;
         this.animaux = response.user.prefAnimaux;
         this.musique = response.user.prefMusique;
-        this.reservations = response.trajetsReserves;
-        this.publications = response.trajetsProposes;
+        //this.reservations = response.trajetsReserves;
+        //this.publications = response.trajetsProposes;
         
-        this.dataSource = response.trajetsReserves;
+        this.dataSourceReservation = response.trajetsReserves;
+        this.dataSourcePublication = response.trajetsProposes;
+        console.log(this.dataSourcePublication);
       }
     });
   }

@@ -1,5 +1,3 @@
-const express = require('express');
-const router = express.Router();
 var passport = require('passport');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
@@ -113,7 +111,12 @@ module.exports.board = (req,res) => {
             if (!user)
                 res.json({success:false, msg:'User not found'}); 
             else {
-                Trajet.find({idConducteur:user._id}).sort('-date').exec((err, trajetsProposes) => {
+                Trajet.find({idConducteur:user._id})
+                .sort('-date')
+                .populate('idVilleDepart')
+                .populate('idVilleArrivee')
+                .populate('idConducteur')
+                .exec((err, trajetsProposes) => {
                     if (err)
                         res.json({success:false, msg:'error'});
                     Reservation.find({idPassager:user._id})

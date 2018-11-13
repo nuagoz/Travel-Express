@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService, TokenPayload } from '../services/authentication.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class RegisterComponent implements OnInit {
   formError: Boolean = false;
   msgError: String;
 
-  constructor(private auth: AuthenticationService, private router: Router) { }
+  constructor(private auth: AuthenticationService, private router: Router, private toastr: ToastrService) { }
 
   register() {
     this.auth.register(this.credentials).subscribe(response => {
@@ -30,6 +31,7 @@ export class RegisterComponent implements OnInit {
       }
       else { // inscription OK
         this.formError = false;
+        this.toastr.success("Vous pouvez vous connecter", "Inscription réussie !");
         this.router.navigateByUrl('/login');
       }
     }, err => {

@@ -39,6 +39,7 @@
 	<div class="text-center" *ngIf="!isLoaded"><mat-spinner class="centerSpinner" [diameter]="50"></mat-spinner></div>
 	<div *ngIf="isLoaded" class="row">
 		<div *ngFor="let result of searchResults" class="searchcard col-sm-6 offset-sm-3 col-xs-12">
+			<div>{{ formatDate(result.date) }}</div>
 			<mat-card class="clickableCard" (click)="getLift(result._id)">
 				<div class="prix"><span class="badge badge-primary">{{ result.tarif }} $</span></div>
 				<div>

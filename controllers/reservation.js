@@ -1,10 +1,5 @@
-const express = require('express');
-const router = express.Router();
-const passport = require('passport');
 var mongoose = require('mongoose');
 const Trajet = mongoose.model('Trajet');
-const Ville = mongoose.model('City');
-const User = mongoose.model('User');
 const Reservation = mongoose.model('Reservation');
 const moment = require('moment');
 

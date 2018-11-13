@@ -574,7 +574,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tab-group>\n    <mat-tab label=\"Préférences\">\n      <div class=\"container\">\n        <div class=\"row\">\n          <h1 class=\"text-center\">_</h1>\n          <div class=\"container\">\n            <div class=\"row\">\n              <!--team-1-->\n              <div class=\"col-lg-4\">\n                <div class=\"our-team-main\">\n                  <div class=\"team-front\">\n                    <img src=\"https://png.pngtree.com/svg/20140611/smoke_1263764.png\" class=\"img-fluid\" />\n                    <h3>Cigarette</h3>\n                    <mat-checkbox (change)=\"prefChanged('cigarette')\" *ngIf=\"isLoaded\" class=\"example-margin\" [(ngModel)]=\"fumeur\">Autoriser</mat-checkbox>\n                  </div>\n                  <div class=\"team-back\">\n                  </div>\n                </div>\n              </div>\n              <!--team-1-->\n              <!--team-2-->\n              <div class=\"col-lg-4\">\n                <div class=\"our-team-main\">\n                  <div class=\"team-front\">\n                    <img class=\"iconPref\" src=\"https://png.pngtree.com/svg/20150803/pet_1259553.png\" class=\"img-fluid\" />\n                    <h3>Animaux</h3>\n                    <mat-checkbox (change)=\"prefChanged('animaux')\" *ngIf=\"isLoaded\" class=\"example-margin\" [(ngModel)]=\"animaux\">Autoriser</mat-checkbox>\n                  </div>\n                  <div class=\"team-back\">\n                  </div>\n                </div>\n              </div>\n              <!--team-2-->\n              <!--team-3-->\n              <div class=\"col-lg-4\">\n                <div class=\"our-team-main\">\n                  <div class=\"team-front\">\n                    <img class=\"iconPref\" src=\"https://static.thenounproject.com/png/5029-200.png\" class=\"img-fluid\" />\n                    <h3>Musique</h3>\n                    <mat-checkbox (change)=\"prefChanged('musique')\" *ngIf=\"isLoaded\" class=\"example-margin\" [(ngModel)]=\"musique\">Autoriser</mat-checkbox>\n                  </div>\n                  <div class=\"team-back\">\n                  </div>\n                </div>\n              </div>\n              <!--team-3-->\n            </div>\n          </div>\n        </div>\n      </div>\n    </mat-tab>\n    <mat-tab label=\"Trajets publiés\">\n\n    </mat-tab>\n    <mat-tab label=\"Mes réservations\">\n      <br/><br/>\n      <div class=\"container\">\n        <div class=\"row\">\n          <table *ngIf=\"isLoaded\" mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n\n              <!--- Note that these columns can be defined in any order.\n                    The actual rendered columns are set as a property on the row definition\" -->\n            \n              <!-- Position Column -->\n              <ng-container matColumnDef=\"depart\">\n                <th mat-header-cell *matHeaderCellDef> Départ </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.idTrajet.idVilleDepart.nom }} </td>\n              </ng-container>\n            \n              <!-- Name Column -->\n              <ng-container matColumnDef=\"destination\">\n                <th mat-header-cell *matHeaderCellDef> Destination </th>\n                <td mat-cell *matCellDef=\"let element\">{{element.idTrajet.idVilleArrivee.nom }} </td>\n              </ng-container>\n            \n              <!-- Weight Column -->\n              <ng-container matColumnDef=\"heuredep\">\n                <th mat-header-cell *matHeaderCellDef> Heure de départ </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.idTrajet.heureDepart }} </td>\n              </ng-container>\n            \n              <!-- Symbol Column -->\n              <ng-container matColumnDef=\"heurearr\">\n                <th mat-header-cell *matHeaderCellDef> Heure d'arrivée </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.idTrajet.heureArrivee}} </td>\n              </ng-container>\n\n              <ng-container matColumnDef=\"date\">\n                <th mat-header-cell *matHeaderCellDef> Date </th>\n                <td mat-cell *matCellDef=\"let element\"> {{ formatDate(element.idTrajet.date) }} </td>\n              </ng-container>\n\n              <ng-container matColumnDef=\"places\">\n                <th mat-header-cell *matHeaderCellDef> Place(s) </th>\n                <td mat-cell *matCellDef=\"let element\"> {{ element.nbPassagers }} </td>\n              </ng-container>\n\n              <ng-container matColumnDef=\"prix\">\n                <th mat-header-cell *matHeaderCellDef> Prix total </th>\n                <td mat-cell *matCellDef=\"let element\"><span class=\"badge badge-primary\">{{calcPrice(element.idTrajet.tarif, element.nbPassagers)}} $ </span></td>\n              </ng-container>\n          \n              <ng-container matColumnDef=\"action\">\n                <th mat-header-cell *matHeaderCellDef> Action </th>\n                <td mat-cell *matCellDef=\"let element\">\n                  <a [routerLink]=\"['/lift', element.idTrajet._id]\">\n                    <button mat-raised-button color=\"primary\"><i class=\"fa fa-eye\" aria-hidden=\"true\"></i> Voir</button>\n                  </a>\n                </td>\n              </ng-container>\n              \n              <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n              <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n            </table>\n          </div>\n        </div>\n        <br/><br/>\n    </mat-tab>\n  </mat-tab-group>"
+module.exports = "<mat-tab-group>\n    <mat-tab label=\"Préférences\">\n      <div class=\"container\">\n        <div class=\"row\">\n          <h1 class=\"text-center\">_</h1>\n          <div class=\"container\">\n            <div class=\"row\">\n              <!--team-1-->\n              <div class=\"col-lg-4\">\n                <div class=\"our-team-main\">\n                  <div class=\"team-front\">\n                    <img src=\"https://png.pngtree.com/svg/20140611/smoke_1263764.png\" class=\"img-fluid\" />\n                    <h3>Cigarette</h3>\n                    <mat-checkbox (change)=\"prefChanged('cigarette')\" *ngIf=\"isLoaded\" class=\"example-margin\" [(ngModel)]=\"fumeur\">Autoriser</mat-checkbox>\n                  </div>\n                  <div class=\"team-back\">\n                  </div>\n                </div>\n              </div>\n              <!--team-1-->\n              <!--team-2-->\n              <div class=\"col-lg-4\">\n                <div class=\"our-team-main\">\n                  <div class=\"team-front\">\n                    <img class=\"iconPref\" src=\"https://png.pngtree.com/svg/20150803/pet_1259553.png\" class=\"img-fluid\" />\n                    <h3>Animaux</h3>\n                    <mat-checkbox (change)=\"prefChanged('animaux')\" *ngIf=\"isLoaded\" class=\"example-margin\" [(ngModel)]=\"animaux\">Autoriser</mat-checkbox>\n                  </div>\n                  <div class=\"team-back\">\n                  </div>\n                </div>\n              </div>\n              <!--team-2-->\n              <!--team-3-->\n              <div class=\"col-lg-4\">\n                <div class=\"our-team-main\">\n                  <div class=\"team-front\">\n                    <img class=\"iconPref\" src=\"https://static.thenounproject.com/png/5029-200.png\" class=\"img-fluid\" />\n                    <h3>Musique</h3>\n                    <mat-checkbox (change)=\"prefChanged('musique')\" *ngIf=\"isLoaded\" class=\"example-margin\" [(ngModel)]=\"musique\">Autoriser</mat-checkbox>\n                  </div>\n                  <div class=\"team-back\">\n                  </div>\n                </div>\n              </div>\n              <!--team-3-->\n            </div>\n          </div>\n        </div>\n      </div>\n    </mat-tab>\n    <mat-tab label=\"Trajets publiés\">\n\n        <br/><br/>\n        <div class=\"container\">\n          <div class=\"row\">\n            <table *ngIf=\"isLoaded\" mat-table [dataSource]=\"dataSourcePublication\" class=\"mat-elevation-z8\">\n  \n                <!--- Note that these columns can be defined in any order.\n                      The actual rendered columns are set as a property on the row definition\" -->\n              \n                <!-- Position Column -->\n                <ng-container matColumnDef=\"depart\">\n                  <th mat-header-cell *matHeaderCellDef> Départ </th>\n                  <td mat-cell *matCellDef=\"let element\"> {{element.idVilleDepart.nom }} </td>\n                </ng-container>\n              \n                <!-- Name Column -->\n                <ng-container matColumnDef=\"destination\">\n                  <th mat-header-cell *matHeaderCellDef> Destination </th>\n                  <td mat-cell *matCellDef=\"let element\">{{element.idVilleArrivee.nom }} </td>\n                </ng-container>\n              \n                <!-- Weight Column -->\n                <ng-container matColumnDef=\"heuredep\">\n                  <th mat-header-cell *matHeaderCellDef> Heure de départ </th>\n                  <td mat-cell *matCellDef=\"let element\"> {{element.heureDepart }} </td>\n                </ng-container>\n              \n                <!-- Symbol Column -->\n                <ng-container matColumnDef=\"heurearr\">\n                  <th mat-header-cell *matHeaderCellDef> Heure d'arrivée </th>\n                  <td mat-cell *matCellDef=\"let element\"> {{element.heureArrivee}} </td>\n                </ng-container>\n  \n                <ng-container matColumnDef=\"date\">\n                  <th mat-header-cell *matHeaderCellDef> Date </th>\n                  <td mat-cell *matCellDef=\"let element\"> {{ formatDate(element.date) }} </td>\n                </ng-container>\n  \n                <ng-container matColumnDef=\"places\">\n                  <th mat-header-cell *matHeaderCellDef> Place(s) proposées </th>\n                  <td mat-cell *matCellDef=\"let element\"> {{ element.nbPlaces }} </td>\n                </ng-container>\n  \n                <ng-container matColumnDef=\"prix\">\n                  <th mat-header-cell *matHeaderCellDef> Prix par place </th>\n                  <td mat-cell *matCellDef=\"let element\"><span class=\"badge badge-primary\">{{ element.tarif }} $ </span></td>\n                </ng-container>\n            \n                <ng-container matColumnDef=\"action\">\n                  <th mat-header-cell *matHeaderCellDef> Action </th>\n                  <td mat-cell *matCellDef=\"let element\">\n                    <a [routerLink]=\"['/lift', element._id]\">\n                      <button mat-raised-button color=\"primary\"><i class=\"fa fa-eye\" aria-hidden=\"true\"></i> Voir</button>\n                    </a>\n                  </td>\n                </ng-container>\n                \n                <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n              </table>\n            </div>\n          </div>\n          <br/><br/>\n\n\n    </mat-tab>\n    <mat-tab label=\"Mes réservations\">\n      <br/><br/>\n      <div class=\"container\">\n        <div class=\"row\">\n          <table *ngIf=\"isLoaded\" mat-table [dataSource]=\"dataSourceReservation\" class=\"mat-elevation-z8\">\n\n              <!--- Note that these columns can be defined in any order.\n                    The actual rendered columns are set as a property on the row definition\" -->\n            \n              <!-- Position Column -->\n              <ng-container matColumnDef=\"depart\">\n                <th mat-header-cell *matHeaderCellDef> Départ </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.idTrajet.idVilleDepart.nom }} </td>\n              </ng-container>\n            \n              <!-- Name Column -->\n              <ng-container matColumnDef=\"destination\">\n                <th mat-header-cell *matHeaderCellDef> Destination </th>\n                <td mat-cell *matCellDef=\"let element\">{{element.idTrajet.idVilleArrivee.nom }} </td>\n              </ng-container>\n            \n              <!-- Weight Column -->\n              <ng-container matColumnDef=\"heuredep\">\n                <th mat-header-cell *matHeaderCellDef> Heure de départ </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.idTrajet.heureDepart }} </td>\n              </ng-container>\n            \n              <!-- Symbol Column -->\n              <ng-container matColumnDef=\"heurearr\">\n                <th mat-header-cell *matHeaderCellDef> Heure d'arrivée </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.idTrajet.heureArrivee}} </td>\n              </ng-container>\n\n              <ng-container matColumnDef=\"date\">\n                <th mat-header-cell *matHeaderCellDef> Date </th>\n                <td mat-cell *matCellDef=\"let element\"> {{ formatDate(element.idTrajet.date) }} </td>\n              </ng-container>\n\n              <ng-container matColumnDef=\"places\">\n                <th mat-header-cell *matHeaderCellDef> Place(s) </th>\n                <td mat-cell *matCellDef=\"let element\"> {{ element.nbPassagers }} </td>\n              </ng-container>\n\n              <ng-container matColumnDef=\"prix\">\n                <th mat-header-cell *matHeaderCellDef> Prix total </th>\n                <td mat-cell *matCellDef=\"let element\"><span class=\"badge badge-primary\">{{calcPrice(element.idTrajet.tarif, element.nbPassagers)}} $ </span></td>\n              </ng-container>\n          \n              <ng-container matColumnDef=\"action\">\n                <th mat-header-cell *matHeaderCellDef> Action </th>\n                <td mat-cell *matCellDef=\"let element\">\n                  <a [routerLink]=\"['/lift', element.idTrajet._id]\">\n                    <button mat-raised-button color=\"primary\"><i class=\"fa fa-eye\" aria-hidden=\"true\"></i> Voir</button>\n                  </a>\n                </td>\n              </ng-container>\n              \n              <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n              <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n            </table>\n          </div>\n        </div>\n        <br/><br/>\n    </mat-tab>\n  </mat-tab-group>"
 
 /***/ }),
 
@@ -634,14 +634,15 @@ var BoardComponent = /** @class */ (function () {
         var _this = this;
         this.userService.getBoard().subscribe(function (response) {
             if (response.success === true) {
-                console.log(response);
                 _this.isLoaded = true;
                 _this.fumeur = response.user.prefFumeur;
                 _this.animaux = response.user.prefAnimaux;
                 _this.musique = response.user.prefMusique;
-                _this.reservations = response.trajetsReserves;
-                _this.publications = response.trajetsProposes;
-                _this.dataSource = response.trajetsReserves;
+                //this.reservations = response.trajetsReserves;
+                //this.publications = response.trajetsProposes;
+                _this.dataSourceReservation = response.trajetsReserves;
+                _this.dataSourcePublication = response.trajetsProposes;
+                console.log(_this.dataSourcePublication);
             }
         });
     };
@@ -701,7 +702,7 @@ module.exports = ".shape{    \r\n\tborder-style: solid; border-width: 0 70px 40p
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n\t<div class=\"row no-gutters\">\r\n\t\t<form id=\"search_form\" (submit)=\"search()\">\r\n\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t<mat-form-field class=\"example-full-width\">\r\n\t\t\t\t\t<input type=\"text\" placeholder=\"Départ\" aria-label=\"Départ\" matInput name=\"villeDepart\" [(ngModel)]=\"searchDatas.villeDepart\" [formControl]=\"myControl\" [matAutocomplete]=\"auto\">\r\n\t\t\t\t\t<mat-autocomplete #auto=\"matAutocomplete\" [displayWith]=\"displayFn\">\r\n\t\t\t\t\t\t<mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\r\n\t\t\t\t\t\t{{option.nom}}\r\n\t\t\t\t\t\t</mat-option>\r\n\t\t\t\t\t</mat-autocomplete>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t<mat-form-field class=\"example-full-width\">\r\n\t\t\t\t\t<input type=\"text\" placeholder=\"Destination\" aria-label=\"Destination\" matInput name=\"villeArrivee\" [(ngModel)]=\"searchDatas.villeArrivee\" [formControl]=\"myControl2\" [matAutocomplete]=\"auto2\">\r\n\t\t\t\t\t<mat-autocomplete #auto2=\"matAutocomplete\" [displayWith]=\"displayFn\">\r\n\t\t\t\t\t\t<mat-option *ngFor=\"let option2 of filteredOptions2 | async\" [value]=\"option2\">\r\n\t\t\t\t\t\t{{option2.nom}}\r\n\t\t\t\t\t\t</mat-option>\r\n\t\t\t\t\t</mat-autocomplete>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t<mat-form-field>\r\n\t\t\t\t\t<input matInput [matDatepicker]=\"picker\" placeholder=\"Date\" name=\"date\" [(ngModel)]=\"searchDatas.date\">\r\n\t\t\t\t\t<mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n\t\t\t\t\t<mat-datepicker #picker></mat-datepicker>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t<button mdbBtn type=\"submit\" color=\"primary\" class=\"waves-light\" mdbWavesEffect>Chercher un trajet</button>\r\n\t\t\t</div>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n\r\n<div class=\"container\">\r\n\t<div class=\"text-center\" *ngIf=\"!isLoaded\"><mat-spinner class=\"centerSpinner\" [diameter]=\"50\"></mat-spinner></div>\r\n\t<div *ngIf=\"isLoaded\" class=\"row\">\r\n\t\t<div *ngFor=\"let result of searchResults\" class=\"searchcard col-sm-6 offset-sm-3 col-xs-12\">\r\n\t\t\t<mat-card class=\"clickableCard\" (click)=\"getLift(result._id)\">\r\n\t\t\t\t<div class=\"prix\"><span class=\"badge badge-primary\">{{ result.tarif }} $</span></div>\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<div class=\"heuredep\">{{ result.heureDepart }}</div><div class=\"villedepart\">{{ result.idVilleDepart.nom }}</div>\r\n\t\t\t\t\t<div class=\"seatsleft\">{{ result.availableSeats }} place(s) restante(s)</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<div class=\"heurearr\">{{ result.heureArrivee }}</div><div class=\"villearrivee\">{{ result.idVilleArrivee.nom }}</div>\r\n\t\t\t\t</div>\r\n\t\t\t</mat-card>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+module.exports = "<div class=\"container\">\r\n\t<div class=\"row no-gutters\">\r\n\t\t<form id=\"search_form\" (submit)=\"search()\">\r\n\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t<mat-form-field class=\"example-full-width\">\r\n\t\t\t\t\t<input type=\"text\" placeholder=\"Départ\" aria-label=\"Départ\" matInput name=\"villeDepart\" [(ngModel)]=\"searchDatas.villeDepart\" [formControl]=\"myControl\" [matAutocomplete]=\"auto\">\r\n\t\t\t\t\t<mat-autocomplete #auto=\"matAutocomplete\" [displayWith]=\"displayFn\">\r\n\t\t\t\t\t\t<mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\r\n\t\t\t\t\t\t{{option.nom}}\r\n\t\t\t\t\t\t</mat-option>\r\n\t\t\t\t\t</mat-autocomplete>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t<mat-form-field class=\"example-full-width\">\r\n\t\t\t\t\t<input type=\"text\" placeholder=\"Destination\" aria-label=\"Destination\" matInput name=\"villeArrivee\" [(ngModel)]=\"searchDatas.villeArrivee\" [formControl]=\"myControl2\" [matAutocomplete]=\"auto2\">\r\n\t\t\t\t\t<mat-autocomplete #auto2=\"matAutocomplete\" [displayWith]=\"displayFn\">\r\n\t\t\t\t\t\t<mat-option *ngFor=\"let option2 of filteredOptions2 | async\" [value]=\"option2\">\r\n\t\t\t\t\t\t{{option2.nom}}\r\n\t\t\t\t\t\t</mat-option>\r\n\t\t\t\t\t</mat-autocomplete>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t<mat-form-field>\r\n\t\t\t\t\t<input matInput [matDatepicker]=\"picker\" placeholder=\"Date\" name=\"date\" [(ngModel)]=\"searchDatas.date\">\r\n\t\t\t\t\t<mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n\t\t\t\t\t<mat-datepicker #picker></mat-datepicker>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t<button mdbBtn type=\"submit\" color=\"primary\" class=\"waves-light\" mdbWavesEffect>Chercher un trajet</button>\r\n\t\t\t</div>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n\r\n<div class=\"container\">\r\n\t<div class=\"text-center\" *ngIf=\"!isLoaded\"><mat-spinner class=\"centerSpinner\" [diameter]=\"50\"></mat-spinner></div>\r\n\t<div *ngIf=\"isLoaded\" class=\"row\">\r\n\t\t<div *ngFor=\"let result of searchResults\" class=\"searchcard col-sm-6 offset-sm-3 col-xs-12\">\r\n\t\t\t<div>{{ formatDate(result.date) }}</div>\r\n\t\t\t<mat-card class=\"clickableCard\" (click)=\"getLift(result._id)\">\r\n\t\t\t\t<div class=\"prix\"><span class=\"badge badge-primary\">{{ result.tarif }} $</span></div>\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<div class=\"heuredep\">{{ result.heureDepart }}</div><div class=\"villedepart\">{{ result.idVilleDepart.nom }}</div>\r\n\t\t\t\t\t<div class=\"seatsleft\">{{ result.availableSeats }} place(s) restante(s)</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<div class=\"heurearr\">{{ result.heureArrivee }}</div><div class=\"villearrivee\">{{ result.idVilleArrivee.nom }}</div>\r\n\t\t\t\t</div>\r\n\t\t\t</mat-card>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
@@ -722,8 +723,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_reservation_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/reservation.service */ "./src/app/services/reservation.service.ts");
 /* harmony import */ var _services_city_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/city.service */ "./src/app/services/city.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_8__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -733,6 +736,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -780,7 +784,7 @@ var HomeComponent = /** @class */ (function () {
     HomeComponent.prototype.search = function () {
         var _this = this;
         this.isLoaded = false;
-        var datas = lodash__WEBPACK_IMPORTED_MODULE_7__["clone"](this.searchDatas);
+        var datas = lodash__WEBPACK_IMPORTED_MODULE_8__["clone"](this.searchDatas);
         if (datas.villeDepart.nom)
             datas.villeDepart = datas.villeDepart.nom;
         if (datas.villeArrivee.nom)
@@ -789,6 +793,10 @@ var HomeComponent = /** @class */ (function () {
             if (response.success === true) {
                 // On récupère les réservations pour chaque trajet
                 var cpt_1 = 0;
+                if (response.resultTrajets.length === 0) {
+                    _this.searchResults = [];
+                    _this.isLoaded = true;
+                }
                 var _loop_1 = function (trajet) {
                     _this.bookingserv.getReservations(trajet._id).subscribe(function (res) {
                         cpt_1++;
@@ -815,6 +823,9 @@ var HomeComponent = /** @class */ (function () {
      */
     HomeComponent.prototype.getLift = function (id) {
         this.router.navigateByUrl('/lift/' + id);
+    };
+    HomeComponent.prototype.formatDate = function (date) {
+        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD/MM/YYYY");
     };
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1302,7 +1313,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterComponent", function() { return RegisterComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1315,10 +1327,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(auth, router) {
+    function RegisterComponent(auth, router, toastr) {
         this.auth = auth;
         this.router = router;
+        this.toastr = toastr;
         this.credentials = {
             prenom: '',
             nom: '',
@@ -1338,6 +1352,7 @@ var RegisterComponent = /** @class */ (function () {
             }
             else { // inscription OK
                 _this.formError = false;
+                _this.toastr.success("Vous pouvez vous connecter", "Inscription réussie !");
                 _this.router.navigateByUrl('/login');
             }
         }, function (err) {
@@ -1352,7 +1367,7 @@ var RegisterComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./register.component.html */ "./src/app/register/register.component.html"),
             styles: [__webpack_require__(/*! ./register.component.scss */ "./src/app/register/register.component.scss")]
         }),
-        __metadata("design:paramtypes", [_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+        __metadata("design:paramtypes", [_services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], ngx_toastr__WEBPACK_IMPORTED_MODULE_2__["ToastrService"]])
     ], RegisterComponent);
     return RegisterComponent;
 }());
@@ -1797,14 +1812,14 @@ __webpack_require__.r(__webpack_exports__);
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-/*export const environment = {
-  production: false,
-  api: 'http://localhost:3000/api'
-};*/
 var environment = {
-    production: true,
-    api: 'https://travel-express-project.herokuapp.com/api'
+    production: false,
+    api: 'http://localhost:3000/api'
 };
+/*export const environment = {
+  production: true,
+  api: 'https://travel-express-project.herokuapp.com/api'
+}*/
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

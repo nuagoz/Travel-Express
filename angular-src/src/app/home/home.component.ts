@@ -6,6 +6,7 @@ import { TrajetService, Trajet } from '../services/trajet.service';
 import { ReservationService, Reservation } from '../services/reservation.service';
 import { CityService, City } from '../services/city.service';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 import * as _ from 'lodash';
 
 @Component({
@@ -83,6 +84,11 @@ export class HomeComponent implements OnInit {
       if(response.success === true) {
         // On récupère les réservations pour chaque trajet
         let cpt = 0;
+        if(response.resultTrajets.length === 0){
+          this.searchResults = [];
+          this.isLoaded = true;
+        }
+          
         for(let trajet of response.resultTrajets) {
           
           this.bookingserv.getReservations(trajet._id).subscribe(res => {
@@ -111,4 +117,7 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/lift/' + id);
   }
 
+  formatDate(date:string) {
+    return moment(date).format("DD/MM/YYYY");
+  }
 }

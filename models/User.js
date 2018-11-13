@@ -16,8 +16,22 @@ let UserSchema = mongoose.Schema({
         required: true
     },
     tel:String,
-    prefFumeur : String, 
-    prefAnimaux : String,
+    prefFumeur : {
+        type: Boolean,
+        default: false
+    },
+    prefAnimaux : {
+        type: Boolean,
+        default: false
+    },
+    prefMusique: {
+        type: Boolean,
+        default: false
+    },
+    nbLiftsAsDriver: {
+        type: Number,
+        default: 0
+    },
     hash:String,
     salt:String
 });

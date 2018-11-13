@@ -39,7 +39,6 @@ module.exports.register = (req, res, next) => {
     ];
 
     for(let field of formFields) {
-        console.log(field)
         if(!req.body[field.key])
             res.json({ success: false, field:field.key, msg: `Le champ ${field.value} est obligatoire !`});
     }
@@ -92,6 +91,16 @@ module.exports.getUser = (req, res) => {
     }
 };
 
+module.exports.setPreferences = (req, res) => {
+    let toSet = {};
+    toSet['prefFumeur'] = req.body.cigarette;
+    toSet['prefAnimaux'] = req.body.animaux;
+    toSet['prefMusique'] = req.body.musique;
+    User.update({ _id: req.body.userId }, { $set: toSet }, (err, raw) => {
+        res.json({success:true });
+    });
+}
+
 module.exports.board = (req,res) => {
 
     if(!req.payload._id) // pas d'ID utilisateur existe dans le JWT
@@ -104,13 +113,20 @@ module.exports.board = (req,res) => {
             if (!user)
                 res.json({success:false, msg:'User not found'}); 
             else {
-                Trajet.find({idConducteur:user._id}, (err, trajetsProposes) => {
+                Trajet.find({idConducteur:user._id}).sort('-date').exec((err, trajetsProposes) => {
                     if (err)
                         res.json({success:false, msg:'error'});
-                    Reservation.find({idPassager:user._id}, (err, trajetsReserves) => {
+                    Reservation.find({idPassager:user._id})
+                    .populate({path:'idTrajet', options: { sort: '-date' }, populate: [
+                        { path:'idVilleDepart' }, 
+                        { path:'idVilleArrivee'},
+                        { path:'idConducteur'}
+                    ] })
+                    .populate('idPassager')
+                    .exec((err, trajetsReserves) => {
                         if (err) 
                             res.json({succes:false, msg: 'error'}); 
-                        res.json({success:true, trajetsProposes: trajetsProposes, trajetsReserves:trajetsReserves});
+                        res.json({success:true, user:user, trajetsProposes: trajetsProposes, trajetsReserves:trajetsReserves});
                     })
                     
                 })
@@ -121,10 +137,5 @@ module.exports.board = (req,res) => {
     }
     
 }
-
-router.delete('/:id', (req, res, next) => {
-    res.send("DELETE id");
-});
-
 //module.exports = router;
 

@@ -23,9 +23,7 @@ export class RegisterComponent implements OnInit {
   constructor(private auth: AuthenticationService, private router: Router) { }
 
   register() {
-    console.log("register clicked");
     this.auth.register(this.credentials).subscribe(response => {
-      console.log("register submit : ", response);
       if(response.success === false){ // erreur dans l'inscription -> ne pas mettre !response.success
         this.formError = true;
         this.msgError = response.msg;
@@ -40,7 +38,6 @@ export class RegisterComponent implements OnInit {
   }
   
   ngOnInit() {
-    console.log("euh ouais ok pourquoi pas")
   }
 
 }

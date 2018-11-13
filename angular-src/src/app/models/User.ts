@@ -4,4 +4,8 @@ export interface User {
     prenom: string;
     mail: string;
     tel: string;
+    prefFumeur?:boolean;
+    prefAnimaux?:boolean;
+    prefMusique?:boolean;
+    nbLiftsAsDriver?:number;
 }

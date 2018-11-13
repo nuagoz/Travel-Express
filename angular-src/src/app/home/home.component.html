@@ -36,16 +36,17 @@
 </div>
 
 <div class="container">
-	<div class="row">
-		<div class="col-sm-6 offset-sm-3 col-xs-12">
-			<mat-card>
-				<div class="prix"><span class="badge badge-primary">25 €</span></div>
+	<div class="text-center" *ngIf="!isLoaded"><mat-spinner class="centerSpinner" [diameter]="50"></mat-spinner></div>
+	<div *ngIf="isLoaded" class="row">
+		<div *ngFor="let result of searchResults" class="searchcard col-sm-6 offset-sm-3 col-xs-12">
+			<mat-card class="clickableCard" (click)="getLift(result._id)">
+				<div class="prix"><span class="badge badge-primary">{{ result.tarif }} $</span></div>
 				<div>
-					<div class="heuredep">11h30</div><div class="villedepart">Chicoutimi</div>
-					<div class="seatsleft">2 places restantes</div>
+					<div class="heuredep">{{ result.heureDepart }}</div><div class="villedepart">{{ result.idVilleDepart.nom }}</div>
+					<div class="seatsleft">{{ result.availableSeats }} place(s) restante(s)</div>
 				</div>
 				<div>
-					<div class="heurearr">16h20</div><div class="villearrivee">Montreal</div>
+					<div class="heurearr">{{ result.heureArrivee }}</div><div class="villearrivee">{{ result.idVilleArrivee.nom }}</div>
 				</div>
 			</mat-card>
 		</div>

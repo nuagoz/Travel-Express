@@ -1,0 +1,89 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="tile">
+              <div class="wrapper">
+                  <div class="header">
+                    <span *ngIf="!isLoaded"><mat-spinner class="centerSpinner" [diameter]="30"></mat-spinner></span>
+                    <span *ngIf="isLoaded">{{ infosTrajet.idVilleDepart.nom }} <i class="fa fa-long-arrow-right" aria-hidden="true"></i> {{ infosTrajet.idVilleArrivee.nom }}</span>
+                    <div *ngIf="isLoaded">{{ dateLift }}</div>
+                  </div>
+                  <div class="dates">
+                      <div class="start">
+                          <strong>Heure de départ</strong> <b *ngIf="isLoaded">{{ infosTrajet.heureDepart }}</b>
+                      </div>
+                      <div class="ends">
+                          <strong>Heure d'arrivée</strong> <b *ngIf="isLoaded">{{ infosTrajet.heureArrivee }}</b>
+                      </div>
+                  </div>
+              </div>
+          </div> 
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="tile">
+              <div class="wrapper">
+                  <div class="header">
+                    <span *ngIf="!isLoaded"><mat-spinner class="centerSpinner" [diameter]="30"></mat-spinner></span>
+                    <span *ngIf="isLoaded">Prix par place : <span class="size30"> {{ prix[0] }}</span><span class="size18">,{{ prix[1] }}$</span></span>
+                  </div>
+                  <div class="dates text-center">
+                      <span class="titlepassager">Passagers sur ce trajet</span><br/>
+                      
+                      <span *ngFor='let reservation of infosReservation'>
+                          <span *ngFor='let in of counter(parseNumber(reservation.nbPassagers));let i = index'>
+                            <img [matTooltip]="reservation.idPassager.prenom + ' ' + reservation.idPassager.nom" class="PhotoWrapper-user PhotoWrapper-user--smaller tip u-block" [ngClass]="{'no-margin': availableSeats === 0}" src="https://d1ovtcjitiy70m.cloudfront.net/vi-1/images/avatar/passenger-m.svg" width="36" height="36" style="width: 36; height: 36;">
+                          </span>
+                      </span>
+                      <span *ngFor='let in of counter(availableSeats) ;let i = index'>
+                        <span class="seatAvailable"></span>
+                      </span>
+                      <br/>
+                      <span><span class="seatLeft">{{ availableSeats }}</span> place(s) restante(s)</span>
+                  </div>
+
+                  <div class="stats text-center">
+                    <b id="textinfo">Votre réservation sera automatiquement confirmée</b><br/>
+                      <mat-form-field>
+                        <mat-select [(value)]="selected">
+                          <mat-option *ngFor='let in of counter(availableSeats);let i = index' [value]="i+1">{{ i+1 }} place(s)</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                  </div>
+
+                  <div class="footerReservation">
+                      <button mdbBtn type="button" (click)="booking()" [attr.disabled]="availableSeats === 0 || liftDisabled ? 'true' : null" color="warning" class="waves-light btn-block" mdbWavesEffect>Réserver</button>
+                  </div>
+              </div>
+          </div> 
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="tile">
+              <div class="wrapper">
+                  <div class="header">
+                    <span *ngIf="!isLoaded"><mat-spinner class="centerSpinner" [diameter]="30"></mat-spinner></span>
+                    <span *ngIf="isLoaded">Conducteur</span><br/>
+                    <span *ngIf="isLoaded">{{ infosTrajet.idConducteur.prenom }} {{ infosTrajet.idConducteur.nom }}</span>
+                  </div>
+                  <div class="dates text-center">
+                      <span *ngIf="isLoaded" class="titlepassager">{{ infosTrajet.idConducteur.nbLiftsAsDriver }} trajet(s)</span><br/>
+                  </div>
+                  <div class="stats">
+
+                      <div>
+                          <strong>Cigarette</strong> <span *ngIf="isLoaded && infosTrajet.idConducteur.prefFumeur">Autorisée</span><span *ngIf="isLoaded && !infosTrajet.idConducteur.prefFumeur">Interdite</span>
+                      </div>
+
+                      <div>
+                          <strong>Animaux</strong> <span *ngIf="isLoaded && infosTrajet.idConducteur.prefAnimaux">Autorisés</span><span *ngIf="isLoaded && !infosTrajet.idConducteur.prefAnimaux">Interdits</span>
+                      </div>
+
+                      <div>
+                          <strong>Musique</strong> <span *ngIf="isLoaded && infosTrajet.idConducteur.prefMusique">Autorisée</span><span *ngIf="isLoaded && !infosTrajet.idConducteur.prefMusique">Interdite</span>
+                      </div>
+
+                  </div>
+              </div>
+          </div> 
+      </div>
+  </div>
+</div>

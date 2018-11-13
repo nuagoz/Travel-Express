@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 let TrajetSchema = mongoose.Schema({
     idConducteur: {
-        type: String,
+        type: Schema.Types.ObjectId, ref: 'User',
         required: true
-    }, 
+    },
 
     date: {
         type : String, 
@@ -12,12 +13,12 @@ let TrajetSchema = mongoose.Schema({
     }, 
 
     idVilleDepart : {
-        type : String, 
+        type: Schema.Types.ObjectId, ref: 'City',
         required : true
     }, 
 
     idVilleArrivee : {
-        type : String, 
+        type: Schema.Types.ObjectId, ref: 'City',
         required : true
     },
 

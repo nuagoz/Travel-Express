@@ -1,6 +1,6 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark cyan fixed-top scrolling-navbar">
   <mdb-navbar-brand>
-      <a class="navbar-brand" href="">Travel Express</a>
+      <a class="navbar-brand" routerLink="/home">Travel Express</a>
   </mdb-navbar-brand>
   <links>
       <ul class="navbar-nav ml-auto">
@@ -8,7 +8,12 @@
               <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect>Home </a>
           </li>
           <li *ngIf="auth.isLoggedIn()" routerLinkActive="active" class="nav-item">
-                <a routerLink="/publish" class="nav-link waves-light" mdbWavesEffect><i class="fa fa-sign-in"></i> Proposer un trajet</a>
+            <a routerLink="/board" class="nav-link waves-light" mdbWavesEffect>
+                <i class="fa fa-home" aria-hidden="true"></i> Tableau de bord
+            </a>
+          </li>
+          <li *ngIf="auth.isLoggedIn()" routerLinkActive="active" class="nav-item">
+                <a routerLink="/publish" class="nav-link waves-light" mdbWavesEffect><i class="fa fa-plus" aria-hidden="true"></i> Proposer un trajet</a>
           </li>
           <li *ngIf="!auth.isLoggedIn()" routerLinkActive="active" class="nav-item">
             <a routerLink="/register" class="nav-link waves-light" mdbWavesEffect><i class="fa fa-user-plus"></i> Inscription</a>
@@ -20,8 +25,7 @@
               <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                 <i class="fa fa-user"></i> {{ auth.getUserDetails()?.prenom }}<span class="caret"></span></a>
               <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-                  <a class="dropdown-item waves-light" mdbWavesEffect><i class="fa fa-gear"></i> Options</a>
-                  <a class="dropdown-item waves-light" (click)="logout()" mdbWavesEffect><i class="fa fa-power-off" aria-hidden="true"></i> -Déconnexion</a>
+                  <a class="dropdown-item waves-light" (click)="logout()" mdbWavesEffect><i class="fa fa-power-off" aria-hidden="true"></i> Déconnexion</a>
                   <!-- <div class="divider dropdown-divider"></div> -->
               </div>
           </li>

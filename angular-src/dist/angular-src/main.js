@@ -319,6 +319,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
 /* harmony import */ var _publish_publish_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./publish/publish.component */ "./src/app/publish/publish.component.ts");
 /* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
+/* harmony import */ var _lift_lift_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./lift/lift.component */ "./src/app/lift/lift.component.ts");
+/* harmony import */ var _board_board_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./board/board.component */ "./src/app/board/board.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -332,12 +334,17 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
     { path: 'register', component: _register_register_component__WEBPACK_IMPORTED_MODULE_4__["RegisterComponent"] },
-    { path: 'publish', component: _publish_publish_component__WEBPACK_IMPORTED_MODULE_5__["PublishComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_6__["AuthGuardService"]] } // route protected from unauthenticated users
+    { path: 'publish', component: _publish_publish_component__WEBPACK_IMPORTED_MODULE_5__["PublishComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_6__["AuthGuardService"]] },
+    { path: 'lift/:id', component: _lift_lift_component__WEBPACK_IMPORTED_MODULE_7__["LiftComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_6__["AuthGuardService"]] },
+    { path: 'board', component: _board_board_component__WEBPACK_IMPORTED_MODULE_8__["BoardComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_6__["AuthGuardService"]] },
+    { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -454,11 +461,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
 /* harmony import */ var _publish_publish_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./publish/publish.component */ "./src/app/publish/publish.component.ts");
-/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./services/user.service */ "./src/app/services/user.service.ts");
-/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./services/authentication.service */ "./src/app/services/authentication.service.ts");
-/* harmony import */ var _services_trajet_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./services/trajet.service */ "./src/app/services/trajet.service.ts");
-/* harmony import */ var _services_city_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/city.service */ "./src/app/services/city.service.ts");
-/* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
+/* harmony import */ var _lift_lift_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./lift/lift.component */ "./src/app/lift/lift.component.ts");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _services_trajet_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/trajet.service */ "./src/app/services/trajet.service.ts");
+/* harmony import */ var _services_city_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/city.service */ "./src/app/services/city.service.ts");
+/* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
+/* harmony import */ var _services_reservation_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./services/reservation.service */ "./src/app/services/reservation.service.ts");
+/* harmony import */ var _board_board_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./board/board.component */ "./src/app/board/board.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -487,7 +497,10 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 /* Services */
+
+
 
 
 
@@ -504,7 +517,9 @@ var AppModule = /** @class */ (function () {
                 _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_17__["NavbarComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_18__["LoginComponent"],
                 _register_register_component__WEBPACK_IMPORTED_MODULE_19__["RegisterComponent"],
-                _publish_publish_component__WEBPACK_IMPORTED_MODULE_20__["PublishComponent"]
+                _publish_publish_component__WEBPACK_IMPORTED_MODULE_20__["PublishComponent"],
+                _lift_lift_component__WEBPACK_IMPORTED_MODULE_21__["LiftComponent"],
+                _board_board_component__WEBPACK_IMPORTED_MODULE_28__["BoardComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -525,20 +540,143 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatInputModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatCardModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatButtonModule"],
-                amazing_time_picker__WEBPACK_IMPORTED_MODULE_13__["AmazingTimePickerModule"]
+                amazing_time_picker__WEBPACK_IMPORTED_MODULE_13__["AmazingTimePickerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatProgressSpinnerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatSelectModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatTooltipModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatTabsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatTableModule"]
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NO_ERRORS_SCHEMA"]],
             providers: [
-                _services_user_service__WEBPACK_IMPORTED_MODULE_21__["UserService"],
-                _services_authentication_service__WEBPACK_IMPORTED_MODULE_22__["AuthenticationService"],
-                _services_trajet_service__WEBPACK_IMPORTED_MODULE_23__["TrajetService"],
-                _services_city_service__WEBPACK_IMPORTED_MODULE_24__["CityService"],
-                _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_25__["AuthGuardService"]
+                _services_user_service__WEBPACK_IMPORTED_MODULE_22__["UserService"],
+                _services_authentication_service__WEBPACK_IMPORTED_MODULE_23__["AuthenticationService"],
+                _services_trajet_service__WEBPACK_IMPORTED_MODULE_24__["TrajetService"],
+                _services_city_service__WEBPACK_IMPORTED_MODULE_25__["CityService"],
+                _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_26__["AuthGuardService"],
+                _services_reservation_service__WEBPACK_IMPORTED_MODULE_27__["ReservationService"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_14__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/board/board.component.html":
+/*!********************************************!*\
+  !*** ./src/app/board/board.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-tab-group>\n    <mat-tab label=\"Préférences\">\n      <div class=\"container\">\n        <div class=\"row\">\n          <h1 class=\"text-center\">_</h1>\n          <div class=\"container\">\n            <div class=\"row\">\n              <!--team-1-->\n              <div class=\"col-lg-4\">\n                <div class=\"our-team-main\">\n                  <div class=\"team-front\">\n                    <img src=\"https://png.pngtree.com/svg/20140611/smoke_1263764.png\" class=\"img-fluid\" />\n                    <h3>Cigarette</h3>\n                    <mat-checkbox (change)=\"prefChanged('cigarette')\" *ngIf=\"isLoaded\" class=\"example-margin\" [(ngModel)]=\"fumeur\">Autoriser</mat-checkbox>\n                  </div>\n                  <div class=\"team-back\">\n                  </div>\n                </div>\n              </div>\n              <!--team-1-->\n              <!--team-2-->\n              <div class=\"col-lg-4\">\n                <div class=\"our-team-main\">\n                  <div class=\"team-front\">\n                    <img class=\"iconPref\" src=\"https://png.pngtree.com/svg/20150803/pet_1259553.png\" class=\"img-fluid\" />\n                    <h3>Animaux</h3>\n                    <mat-checkbox (change)=\"prefChanged('animaux')\" *ngIf=\"isLoaded\" class=\"example-margin\" [(ngModel)]=\"animaux\">Autoriser</mat-checkbox>\n                  </div>\n                  <div class=\"team-back\">\n                  </div>\n                </div>\n              </div>\n              <!--team-2-->\n              <!--team-3-->\n              <div class=\"col-lg-4\">\n                <div class=\"our-team-main\">\n                  <div class=\"team-front\">\n                    <img class=\"iconPref\" src=\"https://static.thenounproject.com/png/5029-200.png\" class=\"img-fluid\" />\n                    <h3>Musique</h3>\n                    <mat-checkbox (change)=\"prefChanged('musique')\" *ngIf=\"isLoaded\" class=\"example-margin\" [(ngModel)]=\"musique\">Autoriser</mat-checkbox>\n                  </div>\n                  <div class=\"team-back\">\n                  </div>\n                </div>\n              </div>\n              <!--team-3-->\n            </div>\n          </div>\n        </div>\n      </div>\n    </mat-tab>\n    <mat-tab label=\"Trajets publiés\">\n\n    </mat-tab>\n    <mat-tab label=\"Mes réservations\">\n      <br/><br/>\n      <div class=\"container\">\n        <div class=\"row\">\n          <table *ngIf=\"isLoaded\" mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n\n              <!--- Note that these columns can be defined in any order.\n                    The actual rendered columns are set as a property on the row definition\" -->\n            \n              <!-- Position Column -->\n              <ng-container matColumnDef=\"depart\">\n                <th mat-header-cell *matHeaderCellDef> Départ </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.idTrajet.idVilleDepart.nom }} </td>\n              </ng-container>\n            \n              <!-- Name Column -->\n              <ng-container matColumnDef=\"destination\">\n                <th mat-header-cell *matHeaderCellDef> Destination </th>\n                <td mat-cell *matCellDef=\"let element\">{{element.idTrajet.idVilleArrivee.nom }} </td>\n              </ng-container>\n            \n              <!-- Weight Column -->\n              <ng-container matColumnDef=\"heuredep\">\n                <th mat-header-cell *matHeaderCellDef> Heure de départ </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.idTrajet.heureDepart }} </td>\n              </ng-container>\n            \n              <!-- Symbol Column -->\n              <ng-container matColumnDef=\"heurearr\">\n                <th mat-header-cell *matHeaderCellDef> Heure d'arrivée </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.idTrajet.heureArrivee}} </td>\n              </ng-container>\n\n              <ng-container matColumnDef=\"date\">\n                <th mat-header-cell *matHeaderCellDef> Date </th>\n                <td mat-cell *matCellDef=\"let element\"> {{ formatDate(element.idTrajet.date) }} </td>\n              </ng-container>\n\n              <ng-container matColumnDef=\"places\">\n                <th mat-header-cell *matHeaderCellDef> Place(s) </th>\n                <td mat-cell *matCellDef=\"let element\"> {{ element.nbPassagers }} </td>\n              </ng-container>\n\n              <ng-container matColumnDef=\"prix\">\n                <th mat-header-cell *matHeaderCellDef> Prix total </th>\n                <td mat-cell *matCellDef=\"let element\"><span class=\"badge badge-primary\">{{calcPrice(element.idTrajet.tarif, element.nbPassagers)}} $ </span></td>\n              </ng-container>\n          \n              <ng-container matColumnDef=\"action\">\n                <th mat-header-cell *matHeaderCellDef> Action </th>\n                <td mat-cell *matCellDef=\"let element\">\n                  <a [routerLink]=\"['/lift', element.idTrajet._id]\">\n                    <button mat-raised-button color=\"primary\"><i class=\"fa fa-eye\" aria-hidden=\"true\"></i> Voir</button>\n                  </a>\n                </td>\n              </ng-container>\n              \n              <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n              <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n            </table>\n          </div>\n        </div>\n        <br/><br/>\n    </mat-tab>\n  </mat-tab-group>"
+
+/***/ }),
+
+/***/ "./src/app/board/board.component.scss":
+/*!********************************************!*\
+  !*** ./src/app/board/board.component.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "h1 {\n  color: #fff;\n  margin: 40px 0 60px 0;\n  font-weight: 300; }\n\n.our-team-main {\n  width: 100%;\n  height: auto;\n  border-bottom: 5px #323233 solid;\n  background: #fff;\n  text-align: center;\n  border-radius: 10px;\n  overflow: hidden;\n  position: relative;\n  transition: 0.5s;\n  margin-bottom: 28px; }\n\n.our-team-main img {\n  border-radius: 50%;\n  margin-bottom: 20px;\n  width: 90px; }\n\n.our-team-main h3 {\n  font-size: 20px;\n  font-weight: 700; }\n\n.our-team-main p {\n  margin-bottom: 0; }\n\n.team-back {\n  width: 100%;\n  height: auto;\n  position: absolute;\n  top: 0;\n  left: 0;\n  padding: 5px 15px 0 15px;\n  text-align: left;\n  background: #fff; }\n\n.team-front {\n  width: 100%;\n  height: auto;\n  position: relative;\n  z-index: 10;\n  background: #fff;\n  padding: 15px;\n  bottom: 0px;\n  transition: all 0.5s ease; }\n\n.iconPref {\n  width: 110px;\n  height: 110px; }\n\ntable {\n  width: 100%; }\n"
+
+/***/ }),
+
+/***/ "./src/app/board/board.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/board/board.component.ts ***!
+  \******************************************/
+/*! exports provided: BoardComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BoardComponent", function() { return BoardComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var BoardComponent = /** @class */ (function () {
+    function BoardComponent(userService, router, toastr) {
+        this.userService = userService;
+        this.router = router;
+        this.toastr = toastr;
+        this.fumeur = false;
+        this.animaux = false;
+        this.musique = false;
+        this.isLoaded = false;
+        this.displayedColumns = ['depart', 'destination', 'heuredep', 'heurearr', 'date', 'places', 'prix', 'action'];
+    }
+    BoardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userService.getBoard().subscribe(function (response) {
+            if (response.success === true) {
+                console.log(response);
+                _this.isLoaded = true;
+                _this.fumeur = response.user.prefFumeur;
+                _this.animaux = response.user.prefAnimaux;
+                _this.musique = response.user.prefMusique;
+                _this.reservations = response.trajetsReserves;
+                _this.publications = response.trajetsProposes;
+                _this.dataSource = response.trajetsReserves;
+            }
+        });
+    };
+    BoardComponent.prototype.prefChanged = function (preference) {
+        var _this = this;
+        var toSet = {};
+        toSet['musique'] = this.musique;
+        toSet['cigarette'] = this.fumeur;
+        toSet['animaux'] = this.animaux;
+        this.userService.changePref(toSet).subscribe(function (response) {
+            _this.toastr.success("Vos préférences ont été modifiées");
+        });
+    };
+    BoardComponent.prototype.formatDate = function (date) {
+        return moment__WEBPACK_IMPORTED_MODULE_4__(date).format("DD/MM/YYYY");
+    };
+    BoardComponent.prototype.calcPrice = function (tarif, nbplaces) {
+        return parseInt(tarif) * parseInt(nbplaces);
+    };
+    /**
+     * Retourne true si la date est passée
+     * @param date
+     */
+    BoardComponent.prototype.isPreviousDate = function (date) {
+        return moment__WEBPACK_IMPORTED_MODULE_4__(date) < moment__WEBPACK_IMPORTED_MODULE_4__();
+    };
+    BoardComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-board',
+            template: __webpack_require__(/*! ./board.component.html */ "./src/app/board/board.component.html"),
+            styles: [__webpack_require__(/*! ./board.component.scss */ "./src/app/board/board.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
+    ], BoardComponent);
+    return BoardComponent;
 }());
 
 
@@ -552,7 +690,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".shape{    \r\n\tborder-style: solid; border-width: 0 70px 40px 0; float:right; height: 0px; width: 0px; /* IE 9 */  /* Opera 10.5 */\r\n\t-webkit-transform:rotate(360deg); /* Safari and Chrome */\r\n\ttransform:rotate(360deg);\r\n}\r\n.offer{\r\n\tbackground:#fff; border:1px solid #ddd; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); margin: 15px 0; overflow:hidden;\r\n}\r\n.offer:hover {\r\n    cursor:pointer;\r\n}\r\n.shape {\r\n\tborder-color: rgba(255,255,255,0) #d9534f rgba(255,255,255,0) rgba(255,255,255,0);\r\n}\r\n.offer-radius{\r\n\tborder-radius:7px;\r\n}\r\n.offer-danger {\tborder-color: #d9534f; }\r\n.offer-danger .shape{\r\n\tborder-color: transparent #d9534f transparent transparent;\r\n}\r\n.offer-success {\tborder-color: #5cb85c; }\r\n.offer-success .shape{\r\n\tborder-color: transparent #5cb85c transparent transparent;\r\n}\r\n.offer-default {\tborder-color: #999999; }\r\n.offer-default .shape{\r\n\tborder-color: transparent #999999 transparent transparent;\r\n}\r\n.offer-primary {\tborder-color: #428bca; }\r\n.offer-primary .shape{\r\n\tborder-color: transparent #428bca transparent transparent;\r\n}\r\n.offer-info {\tborder-color: #5bc0de; }\r\n.offer-info .shape{\r\n\tborder-color: transparent #5bc0de transparent transparent;\r\n}\r\n.offer-warning {\tborder-color: #f0ad4e; }\r\n.offer-warning .shape{\r\n\tborder-color: transparent #f0ad4e transparent transparent;\r\n}\r\n.shape-text{\r\n\tcolor:#fff; font-size:12px; font-weight:bold; position:relative; right:-40px; top:2px; white-space: nowrap; /* IE 9 */  /* Opera 10.5 */\r\n\t-webkit-transform:rotate(30deg); /* Safari and Chrome */\r\n\ttransform:rotate(30deg);\r\n}\r\n.offer-content{\r\n\tpadding:0 20px 10px;\r\n}\r\n@media (min-width: 487px) {\r\n  .container {\r\n    max-width: 750px;\r\n  }\r\n  .col-sm-6 {\r\n    width: 50%;\r\n  }\r\n}\r\n@media (min-width: 900px) {\r\n  .container {\r\n    max-width: 970px;\r\n  }\r\n  .col-md-4 {\r\n    width: 33.33333333333333%;\r\n  }\r\n}\r\n@media (min-width: 1200px) {\r\n  .container {\r\n    max-width: 1170px;\r\n  }\r\n  .col-lg-3 {\r\n    width: 25%;\r\n  }\r\n}\r\n.prix {\r\n\tfloat:right;\r\n}\r\n.heuredep {\r\n\tdisplay: inline-block;\r\n\tmargin-right: 10px;\r\n}\r\n.heurearr {\r\n\tdisplay: inline-block;\r\n\tmargin-right: 10px;\r\n}\r\n.villedepart {\r\n\tdisplay: inline-block;\r\n\tfont-weight: 800;\r\n}\r\n.villearrivee {\r\n\tdisplay: inline-block;\r\n\tfont-weight: 800;\r\n}\r\n.seatsleft {\r\n\tposition: absolute;\r\n\tbottom: 30px;\r\n\ttext-align: center;\r\n\twidth:100%;\r\n}\r\n#search_form {\r\n\tdisplay:inherit!important;\r\n\twidth:100%;\r\n}"
+module.exports = ".shape{    \r\n\tborder-style: solid; border-width: 0 70px 40px 0; float:right; height: 0px; width: 0px; /* IE 9 */  /* Opera 10.5 */\r\n\t-webkit-transform:rotate(360deg); /* Safari and Chrome */\r\n\ttransform:rotate(360deg);\r\n}\r\n.offer{\r\n\tbackground:#fff; border:1px solid #ddd; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); margin: 15px 0; overflow:hidden;\r\n}\r\n.offer:hover {\r\n    cursor:pointer;\r\n}\r\n.shape {\r\n\tborder-color: rgba(255,255,255,0) #d9534f rgba(255,255,255,0) rgba(255,255,255,0);\r\n}\r\n.offer-radius{\r\n\tborder-radius:7px;\r\n}\r\n.offer-danger {\tborder-color: #d9534f; }\r\n.offer-danger .shape{\r\n\tborder-color: transparent #d9534f transparent transparent;\r\n}\r\n.offer-success {\tborder-color: #5cb85c; }\r\n.offer-success .shape{\r\n\tborder-color: transparent #5cb85c transparent transparent;\r\n}\r\n.offer-default {\tborder-color: #999999; }\r\n.offer-default .shape{\r\n\tborder-color: transparent #999999 transparent transparent;\r\n}\r\n.offer-primary {\tborder-color: #428bca; }\r\n.offer-primary .shape{\r\n\tborder-color: transparent #428bca transparent transparent;\r\n}\r\n.offer-info {\tborder-color: #5bc0de; }\r\n.offer-info .shape{\r\n\tborder-color: transparent #5bc0de transparent transparent;\r\n}\r\n.offer-warning {\tborder-color: #f0ad4e; }\r\n.offer-warning .shape{\r\n\tborder-color: transparent #f0ad4e transparent transparent;\r\n}\r\n.shape-text{\r\n\tcolor:#fff; font-size:12px; font-weight:bold; position:relative; right:-40px; top:2px; white-space: nowrap; /* IE 9 */  /* Opera 10.5 */\r\n\t-webkit-transform:rotate(30deg); /* Safari and Chrome */\r\n\ttransform:rotate(30deg);\r\n}\r\n.offer-content{\r\n\tpadding:0 20px 10px;\r\n}\r\n@media (min-width: 487px) {\r\n  .container {\r\n    max-width: 750px;\r\n  }\r\n  .col-sm-6 {\r\n    width: 50%;\r\n  }\r\n}\r\n@media (min-width: 900px) {\r\n  .container {\r\n    max-width: 970px;\r\n  }\r\n  .col-md-4 {\r\n    width: 33.33333333333333%;\r\n  }\r\n}\r\n@media (min-width: 1200px) {\r\n  .container {\r\n    max-width: 1170px;\r\n  }\r\n  .col-lg-3 {\r\n    width: 25%;\r\n  }\r\n}\r\n.prix {\r\n\tfloat:right;\r\n}\r\n.heuredep {\r\n\tdisplay: inline-block;\r\n\tmargin-right: 10px;\r\n}\r\n.heurearr {\r\n\tdisplay: inline-block;\r\n\tmargin-right: 10px;\r\n}\r\n.villedepart {\r\n\tdisplay: inline-block;\r\n\tfont-weight: 800;\r\n}\r\n.villearrivee {\r\n\tdisplay: inline-block;\r\n\tfont-weight: 800;\r\n}\r\n.seatsleft {\r\n\tposition: absolute;\r\n\tbottom: 30px;\r\n\ttext-align: center;\r\n\twidth:100%;\r\n}\r\n#search_form {\r\n\tdisplay:inherit!important;\r\n\twidth:100%;\r\n}\r\n.searchcard {\r\n\tmargin-bottom: 15px;\r\n}\r\n.clickableCard {\r\n\tcursor:pointer;\r\n}"
 
 /***/ }),
 
@@ -563,7 +701,7 @@ module.exports = ".shape{    \r\n\tborder-style: solid; border-width: 0 70px 40p
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n\t<div class=\"row no-gutters\">\r\n\t\t<form id=\"search_form\" (submit)=\"search()\">\r\n\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t<mat-form-field class=\"example-full-width\">\r\n\t\t\t\t\t<input type=\"text\" placeholder=\"Départ\" aria-label=\"Départ\" matInput name=\"villeDepart\" [(ngModel)]=\"searchDatas.villeDepart\" [formControl]=\"myControl\" [matAutocomplete]=\"auto\">\r\n\t\t\t\t\t<mat-autocomplete #auto=\"matAutocomplete\" [displayWith]=\"displayFn\">\r\n\t\t\t\t\t\t<mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\r\n\t\t\t\t\t\t{{option.nom}}\r\n\t\t\t\t\t\t</mat-option>\r\n\t\t\t\t\t</mat-autocomplete>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t<mat-form-field class=\"example-full-width\">\r\n\t\t\t\t\t<input type=\"text\" placeholder=\"Destination\" aria-label=\"Destination\" matInput name=\"villeArrivee\" [(ngModel)]=\"searchDatas.villeArrivee\" [formControl]=\"myControl2\" [matAutocomplete]=\"auto2\">\r\n\t\t\t\t\t<mat-autocomplete #auto2=\"matAutocomplete\" [displayWith]=\"displayFn\">\r\n\t\t\t\t\t\t<mat-option *ngFor=\"let option2 of filteredOptions2 | async\" [value]=\"option2\">\r\n\t\t\t\t\t\t{{option2.nom}}\r\n\t\t\t\t\t\t</mat-option>\r\n\t\t\t\t\t</mat-autocomplete>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t<mat-form-field>\r\n\t\t\t\t\t<input matInput [matDatepicker]=\"picker\" placeholder=\"Date\" name=\"date\" [(ngModel)]=\"searchDatas.date\">\r\n\t\t\t\t\t<mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n\t\t\t\t\t<mat-datepicker #picker></mat-datepicker>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t<button mdbBtn type=\"submit\" color=\"primary\" class=\"waves-light\" mdbWavesEffect>Chercher un trajet</button>\r\n\t\t\t</div>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n\r\n<div class=\"container\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col-sm-6 offset-sm-3 col-xs-12\">\r\n\t\t\t<mat-card>\r\n\t\t\t\t<div class=\"prix\"><span class=\"badge badge-primary\">25 €</span></div>\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<div class=\"heuredep\">11h30</div><div class=\"villedepart\">Chicoutimi</div>\r\n\t\t\t\t\t<div class=\"seatsleft\">2 places restantes</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<div class=\"heurearr\">16h20</div><div class=\"villearrivee\">Montreal</div>\r\n\t\t\t\t</div>\r\n\t\t\t</mat-card>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
+module.exports = "<div class=\"container\">\r\n\t<div class=\"row no-gutters\">\r\n\t\t<form id=\"search_form\" (submit)=\"search()\">\r\n\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t<mat-form-field class=\"example-full-width\">\r\n\t\t\t\t\t<input type=\"text\" placeholder=\"Départ\" aria-label=\"Départ\" matInput name=\"villeDepart\" [(ngModel)]=\"searchDatas.villeDepart\" [formControl]=\"myControl\" [matAutocomplete]=\"auto\">\r\n\t\t\t\t\t<mat-autocomplete #auto=\"matAutocomplete\" [displayWith]=\"displayFn\">\r\n\t\t\t\t\t\t<mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\r\n\t\t\t\t\t\t{{option.nom}}\r\n\t\t\t\t\t\t</mat-option>\r\n\t\t\t\t\t</mat-autocomplete>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t<mat-form-field class=\"example-full-width\">\r\n\t\t\t\t\t<input type=\"text\" placeholder=\"Destination\" aria-label=\"Destination\" matInput name=\"villeArrivee\" [(ngModel)]=\"searchDatas.villeArrivee\" [formControl]=\"myControl2\" [matAutocomplete]=\"auto2\">\r\n\t\t\t\t\t<mat-autocomplete #auto2=\"matAutocomplete\" [displayWith]=\"displayFn\">\r\n\t\t\t\t\t\t<mat-option *ngFor=\"let option2 of filteredOptions2 | async\" [value]=\"option2\">\r\n\t\t\t\t\t\t{{option2.nom}}\r\n\t\t\t\t\t\t</mat-option>\r\n\t\t\t\t\t</mat-autocomplete>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t<mat-form-field>\r\n\t\t\t\t\t<input matInput [matDatepicker]=\"picker\" placeholder=\"Date\" name=\"date\" [(ngModel)]=\"searchDatas.date\">\r\n\t\t\t\t\t<mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n\t\t\t\t\t<mat-datepicker #picker></mat-datepicker>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t<button mdbBtn type=\"submit\" color=\"primary\" class=\"waves-light\" mdbWavesEffect>Chercher un trajet</button>\r\n\t\t\t</div>\r\n\t\t</form>\r\n\t</div>\r\n</div>\r\n\r\n<div class=\"container\">\r\n\t<div class=\"text-center\" *ngIf=\"!isLoaded\"><mat-spinner class=\"centerSpinner\" [diameter]=\"50\"></mat-spinner></div>\r\n\t<div *ngIf=\"isLoaded\" class=\"row\">\r\n\t\t<div *ngFor=\"let result of searchResults\" class=\"searchcard col-sm-6 offset-sm-3 col-xs-12\">\r\n\t\t\t<mat-card class=\"clickableCard\" (click)=\"getLift(result._id)\">\r\n\t\t\t\t<div class=\"prix\"><span class=\"badge badge-primary\">{{ result.tarif }} $</span></div>\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<div class=\"heuredep\">{{ result.heureDepart }}</div><div class=\"villedepart\">{{ result.idVilleDepart.nom }}</div>\r\n\t\t\t\t\t<div class=\"seatsleft\">{{ result.availableSeats }} place(s) restante(s)</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<div class=\"heurearr\">{{ result.heureArrivee }}</div><div class=\"villearrivee\">{{ result.idVilleArrivee.nom }}</div>\r\n\t\t\t\t</div>\r\n\t\t\t</mat-card>\r\n\t\t</div>\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
@@ -581,7 +719,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _services_trajet_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/trajet.service */ "./src/app/services/trajet.service.ts");
-/* harmony import */ var _services_city_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/city.service */ "./src/app/services/city.service.ts");
+/* harmony import */ var _services_reservation_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/reservation.service */ "./src/app/services/reservation.service.ts");
+/* harmony import */ var _services_city_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/city.service */ "./src/app/services/city.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_7__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -596,10 +738,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(trajetserv, cityserv) {
+    function HomeComponent(trajetserv, cityserv, router, bookingserv) {
         this.trajetserv = trajetserv;
         this.cityserv = cityserv;
+        this.router = router;
+        this.bookingserv = bookingserv;
         this.myControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.myControl2 = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.searchDatas = {
@@ -607,6 +754,7 @@ var HomeComponent = /** @class */ (function () {
             villeArrivee: '',
             date: ''
         };
+        this.isLoaded = false;
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -616,6 +764,7 @@ var HomeComponent = /** @class */ (function () {
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["startWith"])(''), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (value) { return typeof value === 'string' ? value : value.nom; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (nom) { return nom ? _this._filter(nom) : _this.options.slice(); }));
             _this.filteredOptions = _this.myControl.valueChanges
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["startWith"])(''), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (value) { return typeof value === 'string' ? value : value.nom; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (nom) { return nom ? _this._filter(nom) : _this.options.slice(); }));
+            _this.search();
         });
     };
     HomeComponent.prototype.displayFn = function (city) {
@@ -629,14 +778,43 @@ var HomeComponent = /** @class */ (function () {
      * Fonction de recherche
      */
     HomeComponent.prototype.search = function () {
-        if (this.searchDatas.villeDepart.nom)
-            this.searchDatas.villeDepart = this.searchDatas.villeDepart.nom;
-        if (this.searchDatas.villeArrivee.nom)
-            this.searchDatas.villeArrivee = this.searchDatas.villeArrivee.nom;
-        console.log("Search : ", this.searchDatas);
-        this.trajetserv.search(this.searchDatas).subscribe(function (res) {
-            console.log("Recherche", res);
+        var _this = this;
+        this.isLoaded = false;
+        var datas = lodash__WEBPACK_IMPORTED_MODULE_7__["clone"](this.searchDatas);
+        if (datas.villeDepart.nom)
+            datas.villeDepart = datas.villeDepart.nom;
+        if (datas.villeArrivee.nom)
+            datas.villeArrivee = datas.villeArrivee.nom;
+        this.trajetserv.search(datas).subscribe(function (response) {
+            if (response.success === true) {
+                // On récupère les réservations pour chaque trajet
+                var cpt_1 = 0;
+                var _loop_1 = function (trajet) {
+                    _this.bookingserv.getReservations(trajet._id).subscribe(function (res) {
+                        cpt_1++;
+                        if (res.success === true) {
+                            trajet.availableSeats = parseInt(trajet.nbPlaces) - parseInt(res.seatsBooked);
+                            if (cpt_1 === response.resultTrajets.length) {
+                                _this.searchResults = response.resultTrajets.filter(function (x) { return x.availableSeats > 0; }); // on enlève les covoiturages pleins
+                                _this.isLoaded = true;
+                                console.log("is loaded!", _this.searchResults);
+                            }
+                        }
+                    });
+                };
+                for (var _i = 0, _a = response.resultTrajets; _i < _a.length; _i++) {
+                    var trajet = _a[_i];
+                    _loop_1(trajet);
+                }
+            }
         });
+    };
+    /**
+     * Accede à la page du trajet sélectionné
+     * @param id du trajet
+     */
+    HomeComponent.prototype.getLift = function (id) {
+        this.router.navigateByUrl('/lift/' + id);
     };
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -644,9 +822,142 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/home/home.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_trajet_service__WEBPACK_IMPORTED_MODULE_3__["TrajetService"], _services_city_service__WEBPACK_IMPORTED_MODULE_4__["CityService"]])
+        __metadata("design:paramtypes", [_services_trajet_service__WEBPACK_IMPORTED_MODULE_3__["TrajetService"],
+            _services_city_service__WEBPACK_IMPORTED_MODULE_5__["CityService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
+            _services_reservation_service__WEBPACK_IMPORTED_MODULE_4__["ReservationService"]])
     ], HomeComponent);
     return HomeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/lift/lift.component.html":
+/*!******************************************!*\
+  !*** ./src/app/lift/lift.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n      <div class=\"col-md-4 col-sm-6 col-xs-12\">\n          <div class=\"tile\">\n              <div class=\"wrapper\">\n                  <div class=\"header\">\n                    <span *ngIf=\"!isLoaded\"><mat-spinner class=\"centerSpinner\" [diameter]=\"30\"></mat-spinner></span>\n                    <span *ngIf=\"isLoaded\">{{ infosTrajet.idVilleDepart.nom }} <i class=\"fa fa-long-arrow-right\" aria-hidden=\"true\"></i> {{ infosTrajet.idVilleArrivee.nom }}</span>\n                    <div *ngIf=\"isLoaded\">{{ dateLift }}</div>\n                  </div>\n                  <div class=\"dates\">\n                      <div class=\"start\">\n                          <strong>Heure de départ</strong> <b *ngIf=\"isLoaded\">{{ infosTrajet.heureDepart }}</b>\n                      </div>\n                      <div class=\"ends\">\n                          <strong>Heure d'arrivée</strong> <b *ngIf=\"isLoaded\">{{ infosTrajet.heureArrivee }}</b>\n                      </div>\n                  </div>\n              </div>\n          </div> \n      </div>\n      <div class=\"col-md-4 col-sm-6 col-xs-12\">\n          <div class=\"tile\">\n              <div class=\"wrapper\">\n                  <div class=\"header\">\n                    <span *ngIf=\"!isLoaded\"><mat-spinner class=\"centerSpinner\" [diameter]=\"30\"></mat-spinner></span>\n                    <span *ngIf=\"isLoaded\">Prix par place : <span class=\"size30\"> {{ prix[0] }}</span><span class=\"size18\">,{{ prix[1] }}$</span></span>\n                  </div>\n                  <div class=\"dates text-center\">\n                      <span class=\"titlepassager\">Passagers sur ce trajet</span><br/>\n                      \n                      <span *ngFor='let reservation of infosReservation'>\n                          <span *ngFor='let in of counter(parseNumber(reservation.nbPassagers));let i = index'>\n                            <img [matTooltip]=\"reservation.idPassager.prenom + ' ' + reservation.idPassager.nom\" class=\"PhotoWrapper-user PhotoWrapper-user--smaller tip u-block\" [ngClass]=\"{'no-margin': availableSeats === 0}\" src=\"https://d1ovtcjitiy70m.cloudfront.net/vi-1/images/avatar/passenger-m.svg\" width=\"36\" height=\"36\" style=\"width: 36; height: 36;\">\n                          </span>\n                      </span>\n                      <span *ngFor='let in of counter(availableSeats) ;let i = index'>\n                        <span class=\"seatAvailable\"></span>\n                      </span>\n                      <br/>\n                      <span><span class=\"seatLeft\">{{ availableSeats }}</span> place(s) restante(s)</span>\n                  </div>\n\n                  <div class=\"stats text-center\">\n                    <b id=\"textinfo\">Votre réservation sera automatiquement confirmée</b><br/>\n                      <mat-form-field>\n                        <mat-select [(value)]=\"selected\">\n                          <mat-option *ngFor='let in of counter(availableSeats);let i = index' [value]=\"i+1\">{{ i+1 }} place(s)</mat-option>\n                        </mat-select>\n                      </mat-form-field>\n                  </div>\n\n                  <div class=\"footerReservation\">\n                      <button mdbBtn type=\"button\" (click)=\"booking()\" [attr.disabled]=\"availableSeats === 0 || liftDisabled ? 'true' : null\" color=\"warning\" class=\"waves-light btn-block\" mdbWavesEffect>Réserver</button>\n                  </div>\n              </div>\n          </div> \n      </div>\n      <div class=\"col-md-4 col-sm-6 col-xs-12\">\n          <div class=\"tile\">\n              <div class=\"wrapper\">\n                  <div class=\"header\">\n                    <span *ngIf=\"!isLoaded\"><mat-spinner class=\"centerSpinner\" [diameter]=\"30\"></mat-spinner></span>\n                    <span *ngIf=\"isLoaded\">Conducteur</span><br/>\n                    <span *ngIf=\"isLoaded\">{{ infosTrajet.idConducteur.prenom }} {{ infosTrajet.idConducteur.nom }}</span>\n                  </div>\n                  <div class=\"dates text-center\">\n                      <span *ngIf=\"isLoaded\" class=\"titlepassager\">{{ infosTrajet.idConducteur.nbLiftsAsDriver }} trajet(s)</span><br/>\n                  </div>\n                  <div class=\"stats\">\n\n                      <div>\n                          <strong>Cigarette</strong> <span *ngIf=\"isLoaded && infosTrajet.idConducteur.prefFumeur\">Autorisée</span><span *ngIf=\"isLoaded && !infosTrajet.idConducteur.prefFumeur\">Interdite</span>\n                      </div>\n\n                      <div>\n                          <strong>Animaux</strong> <span *ngIf=\"isLoaded && infosTrajet.idConducteur.prefAnimaux\">Autorisés</span><span *ngIf=\"isLoaded && !infosTrajet.idConducteur.prefAnimaux\">Interdits</span>\n                      </div>\n\n                      <div>\n                          <strong>Musique</strong> <span *ngIf=\"isLoaded && infosTrajet.idConducteur.prefMusique\">Autorisée</span><span *ngIf=\"isLoaded && !infosTrajet.idConducteur.prefMusique\">Interdite</span>\n                      </div>\n\n                  </div>\n              </div>\n          </div> \n      </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/lift/lift.component.scss":
+/*!******************************************!*\
+  !*** ./src/app/lift/lift.component.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".tile {\n  width: 100%;\n  background: #fff;\n  border-radius: 5px;\n  box-shadow: 0px 2px 3px -1px rgba(151, 171, 187, 0.7);\n  float: left;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  margin: 10px 5px; }\n\n.header {\n  border-bottom: 1px solid #ebeff2;\n  padding: 19px 0;\n  text-align: center;\n  color: #59687f;\n  font-size: 600;\n  font-size: 19px;\n  position: relative; }\n\n.banner-img {\n  padding: 5px 5px 0; }\n\n.banner-img img {\n  width: 100%;\n  border-radius: 5px; }\n\n.dates {\n  border: 1px solid #ebeff2;\n  border-radius: 5px;\n  padding: 20px 0px;\n  margin: 10px 20px;\n  font-size: 16px;\n  color: #5aadef;\n  font-weight: 600;\n  overflow: auto; }\n\n.dates div {\n  float: left;\n  width: 50%;\n  text-align: center;\n  position: relative; }\n\n.dates strong,\n.stats strong {\n  display: block;\n  color: #adb8c2;\n  font-size: 11px;\n  font-weight: 700; }\n\n.stats {\n  border-top: 1px solid #ebeff2;\n  background: #f7f8fa;\n  overflow: auto;\n  padding: 15px 0;\n  font-size: 16px;\n  color: #59687f;\n  font-weight: 600;\n  border-radius: 0 0 5px 5px; }\n\n.stats div {\n  border-right: 1px solid #ebeff2;\n  width: 33.33333%;\n  float: left;\n  text-align: center; }\n\n.stats div:nth-of-type(3) {\n  border: none; }\n\ndiv.footer {\n  text-align: right;\n  position: relative;\n  margin: 20px 5px; }\n\ndiv.footer a.Cbtn {\n  padding: 10px 25px;\n  background-color: #DADADA;\n  color: #666;\n  margin: 10px 2px;\n  text-transform: uppercase;\n  font-weight: bold;\n  text-decoration: none;\n  border-radius: 3px; }\n\ndiv.footer a.Cbtn-primary {\n  background-color: #5AADF2;\n  color: #FFF; }\n\ndiv.footer a.Cbtn-primary:hover {\n  background-color: #7dbef5; }\n\ndiv.footer a.Cbtn-danger {\n  background-color: #fc5a5a;\n  color: #FFF; }\n\ndiv.footer a.Cbtn-danger:hover {\n  background-color: #fd7676; }\n\n.size30 {\n  font-size: 30px !important;\n  font-weight: 800; }\n\n.size18 {\n  font-size: 18px !important;\n  font-weight: 800; }\n\n.seatAvailable {\n  display: inline-block;\n  box-sizing: border-box;\n  width: 36px;\n  height: 36px;\n  border: 2px dashed #708C91;\n  border-radius: 50%;\n  margin-left: 10px;\n  margin-top: 10px; }\n\n.seatLeft {\n  font-weight: 800;\n  font-size: 24px;\n  color: #00579a; }\n\n.footerReservation {\n  margin-top: 15px;\n  margin-bottom: 15px;\n  margin-left: 5px;\n  margin-right: 15px; }\n\n#textinfo {\n  font-size: 14px; }\n\n.u-block {\n  margin-top: -24px; }\n\n.no-margin {\n  margin-top: 0px !important; }\n"
+
+/***/ }),
+
+/***/ "./src/app/lift/lift.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/lift/lift.component.ts ***!
+  \****************************************/
+/*! exports provided: LiftComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LiftComponent", function() { return LiftComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_trajet_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/trajet.service */ "./src/app/services/trajet.service.ts");
+/* harmony import */ var _services_reservation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/reservation.service */ "./src/app/services/reservation.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var LiftComponent = /** @class */ (function () {
+    function LiftComponent(route, router, trajetserv, bookingserv, toastr) {
+        this.route = route;
+        this.router = router;
+        this.trajetserv = trajetserv;
+        this.bookingserv = bookingserv;
+        this.toastr = toastr;
+        this.selected = 1;
+        this.liftDisabled = false;
+    }
+    LiftComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.isLoaded = false;
+        this.id = this.route.snapshot.params['id'];
+        this.trajetserv.getTrajet(this.id).subscribe(function (res) {
+            if (res.success === true) {
+                _this.bookingserv.getReservations(_this.id).subscribe(function (response) {
+                    if (response.success === true) {
+                        _this.isLoaded = true;
+                        _this.infosReservation = response.bookings;
+                        _this.infosTrajet = res.result;
+                        _this.availableSeats = parseInt(_this.infosTrajet.nbPlaces) - parseInt(response.seatsBooked);
+                        _this.prix = parseInt(_this.infosTrajet.tarif).toFixed(2).split('.');
+                        _this.dateLift = moment__WEBPACK_IMPORTED_MODULE_5__(_this.infosTrajet.date).format("DD/MM/YYYY");
+                        if (moment__WEBPACK_IMPORTED_MODULE_5__(_this.infosTrajet.date) < moment__WEBPACK_IMPORTED_MODULE_5__())
+                            _this.liftDisabled = true;
+                    }
+                });
+            }
+            else { // Si ce trajet n'existe pas on redirige l'utilisateur à la page d'accueil
+                _this.router.navigateByUrl('/home');
+            }
+        });
+    };
+    LiftComponent.prototype.booking = function () {
+        var _this = this;
+        var datas = {
+            idTrajet: this.id,
+            nbPassagers: this.selected.toString()
+        };
+        this.bookingserv.booking(datas).subscribe(function (response) {
+            console.log(response);
+            if (response.success === true) {
+                _this.router.navigateByUrl('/home');
+                _this.toastr.success("Vous avez r\u00E9serv\u00E9 " + _this.selected + " place(s) pour ce trajet", "Trajet réservé !", { timeOut: 3000 });
+            }
+            else if (response.success === false) {
+                _this.toastr.error(response.msg, "Erreur !");
+            }
+        });
+    };
+    LiftComponent.prototype.counter = function (i) {
+        return new Array(i);
+    };
+    LiftComponent.prototype.parseNumber = function (val) {
+        return parseInt(val);
+    };
+    LiftComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-lift',
+            template: __webpack_require__(/*! ./lift.component.html */ "./src/app/lift/lift.component.html"),
+            styles: [__webpack_require__(/*! ./lift.component.scss */ "./src/app/lift/lift.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _services_trajet_service__WEBPACK_IMPORTED_MODULE_2__["TrajetService"],
+            _services_reservation_service__WEBPACK_IMPORTED_MODULE_3__["ReservationService"],
+            ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"]])
+    ], LiftComponent);
+    return LiftComponent;
 }());
 
 
@@ -756,7 +1067,7 @@ module.exports = "#spacing {\r\n    margin-bottom:90px;\r\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mdb-navbar SideClass=\"navbar navbar-expand-lg navbar-dark cyan fixed-top scrolling-navbar\">\r\n  <mdb-navbar-brand>\r\n      <a class=\"navbar-brand\" href=\"\">Travel Express</a>\r\n  </mdb-navbar-brand>\r\n  <links>\r\n      <ul class=\"navbar-nav ml-auto\">\r\n          <li routerLinkActive=\"active\" class=\"nav-item\">\r\n              <a routerLink=\"/home\" class=\"nav-link waves-light\" mdbWavesEffect>Home </a>\r\n          </li>\r\n          <li *ngIf=\"auth.isLoggedIn()\" routerLinkActive=\"active\" class=\"nav-item\">\r\n                <a routerLink=\"/publish\" class=\"nav-link waves-light\" mdbWavesEffect><i class=\"fa fa-sign-in\"></i> Proposer un trajet</a>\r\n          </li>\r\n          <li *ngIf=\"!auth.isLoggedIn()\" routerLinkActive=\"active\" class=\"nav-item\">\r\n            <a routerLink=\"/register\" class=\"nav-link waves-light\" mdbWavesEffect><i class=\"fa fa-user-plus\"></i> Inscription</a>\r\n          </li>\r\n          <li *ngIf=\"!auth.isLoggedIn()\" routerLinkActive=\"active\" class=\"nav-item\">\r\n              <a routerLink=\"/login\" class=\"nav-link waves-light\" mdbWavesEffect><i class=\"fa fa-sign-in\"></i> Connexion</a>\r\n          </li>\r\n          <li *ngIf=\"auth.isLoggedIn()\" class=\"nav-item dropdown btn-group\" dropdown>\r\n              <a dropdownToggle type=\"button\" class=\"nav-link dropdown-toggle waves-light\" mdbWavesEffect>\r\n                <i class=\"fa fa-user\"></i> {{ auth.getUserDetails()?.prenom }}<span class=\"caret\"></span></a>\r\n              <div *dropdownMenu class=\"dropdown-menu dropdown dropdown-primary\" role=\"menu\">\r\n                  <a class=\"dropdown-item waves-light\" mdbWavesEffect><i class=\"fa fa-gear\"></i> Options</a>\r\n                  <a class=\"dropdown-item waves-light\" (click)=\"logout()\" mdbWavesEffect><i class=\"fa fa-power-off\" aria-hidden=\"true\"></i> -Déconnexion</a>\r\n                  <!-- <div class=\"divider dropdown-divider\"></div> -->\r\n              </div>\r\n          </li>\r\n      </ul>\r\n  </links>\r\n</mdb-navbar>\r\n<div id=\"spacing\"></div>"
+module.exports = "<mdb-navbar SideClass=\"navbar navbar-expand-lg navbar-dark cyan fixed-top scrolling-navbar\">\r\n  <mdb-navbar-brand>\r\n      <a class=\"navbar-brand\" routerLink=\"/home\">Travel Express</a>\r\n  </mdb-navbar-brand>\r\n  <links>\r\n      <ul class=\"navbar-nav ml-auto\">\r\n          <li routerLinkActive=\"active\" class=\"nav-item\">\r\n              <a routerLink=\"/home\" class=\"nav-link waves-light\" mdbWavesEffect>Home </a>\r\n          </li>\r\n          <li *ngIf=\"auth.isLoggedIn()\" routerLinkActive=\"active\" class=\"nav-item\">\r\n            <a routerLink=\"/board\" class=\"nav-link waves-light\" mdbWavesEffect>\r\n                <i class=\"fa fa-home\" aria-hidden=\"true\"></i> Tableau de bord\r\n            </a>\r\n          </li>\r\n          <li *ngIf=\"auth.isLoggedIn()\" routerLinkActive=\"active\" class=\"nav-item\">\r\n                <a routerLink=\"/publish\" class=\"nav-link waves-light\" mdbWavesEffect><i class=\"fa fa-plus\" aria-hidden=\"true\"></i> Proposer un trajet</a>\r\n          </li>\r\n          <li *ngIf=\"!auth.isLoggedIn()\" routerLinkActive=\"active\" class=\"nav-item\">\r\n            <a routerLink=\"/register\" class=\"nav-link waves-light\" mdbWavesEffect><i class=\"fa fa-user-plus\"></i> Inscription</a>\r\n          </li>\r\n          <li *ngIf=\"!auth.isLoggedIn()\" routerLinkActive=\"active\" class=\"nav-item\">\r\n              <a routerLink=\"/login\" class=\"nav-link waves-light\" mdbWavesEffect><i class=\"fa fa-sign-in\"></i> Connexion</a>\r\n          </li>\r\n          <li *ngIf=\"auth.isLoggedIn()\" class=\"nav-item dropdown btn-group\" dropdown>\r\n              <a dropdownToggle type=\"button\" class=\"nav-link dropdown-toggle waves-light\" mdbWavesEffect>\r\n                <i class=\"fa fa-user\"></i> {{ auth.getUserDetails()?.prenom }}<span class=\"caret\"></span></a>\r\n              <div *dropdownMenu class=\"dropdown-menu dropdown dropdown-primary\" role=\"menu\">\r\n                  <a class=\"dropdown-item waves-light\" (click)=\"logout()\" mdbWavesEffect><i class=\"fa fa-power-off\" aria-hidden=\"true\"></i> Déconnexion</a>\r\n                  <!-- <div class=\"divider dropdown-divider\"></div> -->\r\n              </div>\r\n          </li>\r\n      </ul>\r\n  </links>\r\n</mdb-navbar>\r\n<div id=\"spacing\"></div>"
 
 /***/ }),
 
@@ -848,7 +1159,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _services_trajet_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/trajet.service */ "./src/app/services/trajet.service.ts");
 /* harmony import */ var _services_city_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/city.service */ "./src/app/services/city.service.ts");
-/* harmony import */ var amazing_time_picker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! amazing-time-picker */ "./node_modules/amazing-time-picker/amazing-time-picker.es5.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var amazing_time_picker__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! amazing-time-picker */ "./node_modules/amazing-time-picker/amazing-time-picker.es5.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_8__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -864,11 +1179,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
 var PublishComponent = /** @class */ (function () {
-    function PublishComponent(trajetserv, cityserv, atp) {
+    function PublishComponent(trajetserv, cityserv, atp, toastr, router) {
         this.trajetserv = trajetserv;
         this.cityserv = cityserv;
         this.atp = atp;
+        this.toastr = toastr;
+        this.router = router;
         this.myControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.myControl2 = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.formDatas = {
@@ -912,14 +1232,20 @@ var PublishComponent = /** @class */ (function () {
         });
     };
     PublishComponent.prototype.addTrajet = function () {
-        console.log(this.formDatas);
-        if (this.formDatas.villeDepart.nom)
-            this.formDatas.villeDepart = this.formDatas.villeDepart.nom;
-        if (this.formDatas.villeArrivee.nom)
-            this.formDatas.villeArrivee = this.formDatas.villeArrivee.nom;
-        this.trajetserv.addTrajet(this.formDatas).subscribe(function (res) {
-            console.log("OK ! ", res);
-            if (res.success === false) {
+        var _this = this;
+        var datas = lodash__WEBPACK_IMPORTED_MODULE_8__["clone"](this.formDatas);
+        if (datas.villeDepart.nom)
+            datas.villeDepart = datas.villeDepart.nom;
+        if (datas.villeArrivee.nom)
+            datas.villeArrivee = datas.villeArrivee.nom;
+        this.trajetserv.addTrajet(datas).subscribe(function (response) {
+            if (response.success === false) {
+                _this.formError = true;
+                _this.msgError = response.msg;
+            }
+            else if (response.success === true) {
+                _this.router.navigateByUrl('/home');
+                _this.toastr.success("Le trajet que vous avez proposé a été ajouté à la liste", "Trajet ajouté !", { timeOut: 3000 });
             }
         });
     };
@@ -929,7 +1255,11 @@ var PublishComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./publish.component.html */ "./src/app/publish/publish.component.html"),
             styles: [__webpack_require__(/*! ./publish.component.scss */ "./src/app/publish/publish.component.scss")]
         }),
-        __metadata("design:paramtypes", [_services_trajet_service__WEBPACK_IMPORTED_MODULE_3__["TrajetService"], _services_city_service__WEBPACK_IMPORTED_MODULE_4__["CityService"], amazing_time_picker__WEBPACK_IMPORTED_MODULE_5__["AmazingTimePickerService"]])
+        __metadata("design:paramtypes", [_services_trajet_service__WEBPACK_IMPORTED_MODULE_3__["TrajetService"],
+            _services_city_service__WEBPACK_IMPORTED_MODULE_4__["CityService"],
+            amazing_time_picker__WEBPACK_IMPORTED_MODULE_6__["AmazingTimePickerService"],
+            ngx_toastr__WEBPACK_IMPORTED_MODULE_7__["ToastrService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
     ], PublishComponent);
     return PublishComponent;
 }());
@@ -1001,9 +1331,7 @@ var RegisterComponent = /** @class */ (function () {
     }
     RegisterComponent.prototype.register = function () {
         var _this = this;
-        console.log("register clicked");
         this.auth.register(this.credentials).subscribe(function (response) {
-            console.log("register submit : ", response);
             if (response.success === false) { // erreur dans l'inscription -> ne pas mettre !response.success
                 _this.formError = true;
                 _this.msgError = response.msg;
@@ -1017,7 +1345,6 @@ var RegisterComponent = /** @class */ (function () {
         });
     };
     RegisterComponent.prototype.ngOnInit = function () {
-        console.log("euh ouais ok pourquoi pas");
     };
     RegisterComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1047,6 +1374,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1059,10 +1387,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AuthGuardService = /** @class */ (function () {
-    function AuthGuardService(auth, router) {
+    function AuthGuardService(auth, router, toastr) {
         this.auth = auth;
         this.router = router;
+        this.toastr = toastr;
     }
     /**
      * Redirige un utilisateur non connecté à la page de connexion lorsqu'il veut
@@ -1071,6 +1401,7 @@ var AuthGuardService = /** @class */ (function () {
     AuthGuardService.prototype.canActivate = function () {
         if (!this.auth.isLoggedIn()) {
             this.router.navigateByUrl('/login');
+            this.toastr.error("Vous devez être connecté pour accéder à cette page", "Erreur !", { timeOut: 1500 });
             return false;
         }
         return true;
@@ -1079,7 +1410,7 @@ var AuthGuardService = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+        __metadata("design:paramtypes", [_services_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
     ], AuthGuardService);
     return AuthGuardService;
 }());
@@ -1127,10 +1458,8 @@ var AuthenticationService = /** @class */ (function () {
         this.token = token;
     };
     AuthenticationService.prototype.getToken = function () {
-        console.log("Call get Token : " + this.token);
         if (!this.token)
             this.token = localStorage.getItem('mean-token');
-        console.log("Token = " + localStorage.getItem('mean-token'));
         return this.token;
     };
     AuthenticationService.prototype.logout = function () {
@@ -1238,6 +1567,73 @@ var CityService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/reservation.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/services/reservation.service.ts ***!
+  \*************************************************/
+/*! exports provided: ReservationService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReservationService", function() { return ReservationService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var ReservationService = /** @class */ (function () {
+    function ReservationService(http, router, auth) {
+        this.http = http;
+        this.router = router;
+        this.auth = auth;
+    }
+    ReservationService.prototype.request = function (method, type, reservation, trajetId) {
+        var base;
+        if (method === 'post' && type === 'booking') {
+            reservation.idPassager = this.auth.getUserDetails()._id;
+            base = this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/" + type, reservation, { headers: { Authorization: "Bearer " + this.auth.getToken() } });
+        }
+        else if (method === 'get')
+            base = this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/" + type + "?idTrajet=" + trajetId, { headers: { Authorization: "Bearer " + this.auth.getToken() } });
+        var request = base.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res; }));
+        return request;
+    };
+    ReservationService.prototype.booking = function (reservation) {
+        return this.request('post', 'booking', reservation);
+    };
+    ReservationService.prototype.getReservations = function (trajetId) {
+        return this.request('get', 'bookings', null, trajetId);
+    };
+    ReservationService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"], src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"]])
+    ], ReservationService);
+    return ReservationService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/trajet.service.ts":
 /*!********************************************!*\
   !*** ./src/app/services/trajet.service.ts ***!
@@ -1275,7 +1671,7 @@ var TrajetService = /** @class */ (function () {
         this.router = router;
         this.auth = auth;
     }
-    TrajetService.prototype.request = function (method, type, trajet) {
+    TrajetService.prototype.request = function (method, type, trajet, id) {
         var base;
         if (method === 'post' && type === 'search') {
             base = this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/" + type, trajet);
@@ -1285,8 +1681,8 @@ var TrajetService = /** @class */ (function () {
             base = this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/" + type, trajet, { headers: { Authorization: "Bearer " + this.auth.getToken() } });
         }
         //base = this.http.post(environment.api + "/" + type, user);
-        else
-            base = this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/" + type, { headers: { Authorization: "Bearer " + this.auth.getToken() } });
+        else if (method === 'get')
+            base = this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/" + type + "/" + id, { headers: { Authorization: "Bearer " + this.auth.getToken() } });
         var request = base.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res; }));
         return request;
     };
@@ -1301,8 +1697,10 @@ var TrajetService = /** @class */ (function () {
      * Ajoute un trajet créé par le formulaire
      */
     TrajetService.prototype.addTrajet = function (trajet) {
-        console.log("-----------------------");
         return this.request('post', 'trajet', trajet);
+    };
+    TrajetService.prototype.getTrajet = function (id) {
+        return this.request('get', 'lift', null, id);
     };
     TrajetService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -1328,9 +1726,11 @@ var TrajetService = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1344,20 +1744,38 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var UserService = /** @class */ (function () {
-    function UserService(http) {
+    function UserService(http, router, auth) {
         this.http = http;
+        this.router = router;
+        this.auth = auth;
     }
-    UserService.prototype.getUser = function () {
-        return this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + '/user').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
+    UserService.prototype.request = function (method, type, pref) {
+        var base;
+        //trajet.idConducteur = this.auth.getUserDetails()._id;
+        if (method === 'get')
+            base = this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/" + type, { headers: { Authorization: "Bearer " + this.auth.getToken() } });
+        else if (method === 'post') {
+            pref.userId = this.auth.getUserDetails()._id;
+            base = this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api + "/" + type, pref, { headers: { Authorization: "Bearer " + this.auth.getToken() } });
+        }
+        var request = base.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res; }));
+        return request;
     };
-    UserService.prototype.addUser = function () {
+    UserService.prototype.getBoard = function () {
+        return this.request('get', 'board');
     };
+    UserService.prototype.changePref = function (preference) {
+        return this.request('post', 'preferences', preference);
+    };
+    ;
     UserService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"], src_app_services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"]])
     ], UserService);
     return UserService;
 }());

@@ -9,7 +9,18 @@ import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { MatDatepickerModule, MatNativeDateModule, MatInputModule, MatCardModule, MatButtonModule } from '@angular/material';
+import { MatDatepickerModule, 
+         MatNativeDateModule, 
+         MatInputModule, 
+         MatCardModule, 
+         MatButtonModule, 
+         MatProgressSpinnerModule,
+         MatSelectModule,
+         MatTooltipModule,
+         MatTabsModule,
+         MatCheckboxModule,
+         MatTableModule
+        } from '@angular/material';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 
@@ -21,6 +32,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PublishComponent } from './publish/publish.component';
+import { LiftComponent } from './lift/lift.component';
 
 /* Services */
 import { UserService } from './services/user.service';
@@ -28,6 +40,8 @@ import { AuthenticationService } from './services/authentication.service';
 import { TrajetService } from './services/trajet.service';
 import { CityService } from './services/city.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { ReservationService} from './services/reservation.service';
+import { BoardComponent } from './board/board.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +50,9 @@ import { AuthGuardService } from './services/auth-guard.service';
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    PublishComponent
+    PublishComponent,
+    LiftComponent,
+    BoardComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +73,13 @@ import { AuthGuardService } from './services/auth-guard.service';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    AmazingTimePickerModule
+    AmazingTimePickerModule,
+    MatProgressSpinnerModule,
+    MatSelectModule,
+    MatTooltipModule,
+    MatTabsModule,
+    MatCheckboxModule,
+    MatTableModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
@@ -65,7 +87,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     AuthenticationService,
     TrajetService,
     CityService,
-    AuthGuardService
+    AuthGuardService,
+    ReservationService
   ],
   bootstrap: [AppComponent]
 })

@@ -3,7 +3,10 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { TrajetService, Trajet } from '../services/trajet.service';
+import { ReservationService, Reservation } from '../services/reservation.service';
 import { CityService, City } from '../services/city.service';
+import { Router } from '@angular/router';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +28,13 @@ export class HomeComponent implements OnInit {
     date: ''
   };
 
-  constructor(private trajetserv: TrajetService, private cityserv: CityService) {}
+  isLoaded = false;
+  searchResults: Trajet[];
+
+  constructor(private trajetserv: TrajetService, 
+              private cityserv: CityService, 
+              private router: Router,
+              private bookingserv: ReservationService) {}
 
   ngOnInit() {
     this.cityserv.getCities().subscribe(res => {
@@ -45,6 +54,8 @@ export class HomeComponent implements OnInit {
           map(nom => nom ? this._filter(nom) : this.options.slice())
         );
 
+        this.search();
+
     });
   }
 
@@ -61,16 +72,43 @@ export class HomeComponent implements OnInit {
    * Fonction de recherche
    */
   search() {
-    if(this.searchDatas.villeDepart.nom)
-      this.searchDatas.villeDepart = this.searchDatas.villeDepart.nom;
-    if(this.searchDatas.villeArrivee.nom)
-      this.searchDatas.villeArrivee = this.searchDatas.villeArrivee.nom;
+    this.isLoaded = false;
+    let datas = _.clone(this.searchDatas);
+    if(datas.villeDepart.nom)
+      datas.villeDepart = datas.villeDepart.nom;
+    if(datas.villeArrivee.nom)
+      datas.villeArrivee = datas.villeArrivee.nom;
 
-    console.log("Search : ", this.searchDatas);
-    this.trajetserv.search(this.searchDatas).subscribe(res => {
-      console.log("Recherche", res);
+    this.trajetserv.search(datas).subscribe(response => {
+      if(response.success === true) {
+        // On récupère les réservations pour chaque trajet
+        let cpt = 0;
+        for(let trajet of response.resultTrajets) {
+          
+          this.bookingserv.getReservations(trajet._id).subscribe(res => {
+            cpt++;
+            if(res.success === true) {
+              trajet.availableSeats = parseInt(trajet.nbPlaces) - parseInt(res.seatsBooked);
+              if(cpt === response.resultTrajets.length) {
+                this.searchResults = response.resultTrajets.filter(x => x.availableSeats > 0); // on enlève les covoiturages pleins
+                this.isLoaded = true;
+                console.log("is loaded!", this.searchResults);
+              }
+            }
+          });
+          
+        }
+      }
     });
 
+  }
+
+  /**
+   * Accede à la page du trajet sélectionné
+   * @param id du trajet
+   */
+  getLift(id: string): void {
+    this.router.navigateByUrl('/lift/' + id);
   }
 
 }

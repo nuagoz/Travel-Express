@@ -25,7 +25,7 @@ export class TrajetService {
 
   constructor(private http: HttpClient, private router: Router, private auth: AuthenticationService) { }
 
-  private request(method: 'post'|'get', type:'trajet'|'search', trajet?: Trajet): Observable<any> {
+  private request(method: 'post'|'get', type:'trajet'|'search'|'lift', trajet?: Trajet, id?: string): Observable<any> {
     let base;
 
     if(method === 'post' && type === 'search') {
@@ -36,8 +36,8 @@ export class TrajetService {
       base = this.http.post(environment.api + "/" + type, trajet, { headers: { Authorization: `Bearer ${this.auth.getToken()}`}});
     }
       //base = this.http.post(environment.api + "/" + type, user);
-    else
-      base = this.http.get(environment.api + "/" + type, { headers: { Authorization: `Bearer ${this.auth.getToken()}`}});
+    else if(method === 'get')
+      base = this.http.get(environment.api + "/" + type + "/" + id, { headers: { Authorization: `Bearer ${this.auth.getToken()}`}});
 
     const request = base.pipe(map(res => { return res; }));
     return request;
@@ -55,8 +55,11 @@ export class TrajetService {
    * Ajoute un trajet créé par le formulaire
    */
   public addTrajet(trajet: Trajet): Observable<any> {
-    console.log("-----------------------")
     return this.request('post', 'trajet', trajet);
+  }
+
+  public getTrajet(id: string): Observable<any> {
+    return this.request('get', 'lift', null, id);
   }
 
 }

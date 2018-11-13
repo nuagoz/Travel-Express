@@ -5,12 +5,27 @@ var mongoose = require('mongoose');
 const Trajet = mongoose.model('Trajet');
 const Ville = mongoose.model('City');
 const User = mongoose.model('User');
-const Reservation = mongoose.model('Reservation'); 
+const Reservation = mongoose.model('Reservation');
 
 module.exports.addTrajet = (req, res) => {
 
-    let trajet = new Trajet(); 
-    console.log(req.body);
+    // Vérification que l'utilisateur a rempli les champs
+    let formFields = [
+        { key: "villeDepart", value: "Ville de départ"},
+        { key: "villeArrivee", value: "Ville d'arrivée"},
+        { key: "date", value: "Date"},
+        { key: "heureDepart", value: "Heure de départ"},
+        { key: "heureArrivee", value: "Heure d'arrivée"},
+        { key: "nbPlaces", value: "Nombre de places"},
+        { key: "tarif", value: "Prix"}
+    ];
+
+    for(let field of formFields) {
+        if(!req.body[field.key])
+            res.json({ success: false, field:field.key, msg: `Le champ ${field.value} est obligatoire !`});
+    }
+
+    let trajet = new Trajet();
     
     trajet.date = req.body.date;
     trajet.nbPlaces = req.body.nbPlaces; 
@@ -20,28 +35,26 @@ module.exports.addTrajet = (req, res) => {
     trajet.idConducteur = req.body.idConducteur;
 
     Ville.findOne({nom:req.body.villeDepart}, (err, villedep) => {
-        console.log("Ville findone1")
         if (err){
             res.json({success:false, msg:'error'}); 
         }
         if(villedep){
-            console.log("Ville OK");
             trajet.idVilleDepart = villedep._id;
             Ville.findOne({nom:req.body.villeArrivee}, (err, villearr) => {
-                console.log("Ville findone2")
                 if (err){
                     res.json({success:false, msg:'error'}); 
                 }
                 if (villearr){
-                    console.log("Ville 2 OK");
                     trajet.idVilleArrivee = villearr._id;
                     trajet.save(err => {
                         if (err){
                             console.log("ERR !!", err);
                             res.json({success:false, msg:`Failed to add trajet`});
                         }
-                        res.json({success:true});
-                        //res.json({success:true, trajet : trajet});
+                        User.update({_id:trajet.idConducteur}, { $inc: { nbLiftsAsDriver: 1 }}, (err, raw) => {
+                            res.json({success:true});
+                        }); // On ajoute 1 trajet au conducteur
+                        
                     });
                 }
                 
@@ -56,64 +69,64 @@ module.exports.addTrajet = (req, res) => {
 
 module.exports.search = (req, res) => {
 
+    let searchFilter = {};
+    if(req.body.date)
+        searchFilter["date"] = req.body.date;
+    
+    console.log(req.body)
+
     Ville.findOne({nom:req.body.villeDepart}, (err, villedep) => {
         if (err)
             res.json({success:false, msg:'error 1'}); 
 
-        if (!villedep)
-            res.json({success:false, msg:'Departure not found'}); 
-        
-        else {
-            idDepart = villedep._id;
-            Ville.findOne({nom:req.body.villeArrivee}, (err,villearrivee) => {
-                if (err)
-                    res.json({success:false, msg : 'error 2'}); 
-                if (!villearrivee)
-                    res.json({success:false, msg:'Arrival not found'}); 
-                else {
-                    
-                    Trajet.find({idVilleDepart : villedep._id , idVilleArrivee:villearrivee._id, date:req.body.date}, (err, trajets) => {
-                        if (err)
-                            res.json({succes:false, msg:'error 3'}); 
-                        if (!trajets)
-                            res.json({succes:false, msg:'No trajets founds'}); 
-                        else 
-                            res.json({success:true, resultTrajets:trajets}); 
-                        
-                    })
-                }
-            })
+        if (villedep) {
+            searchFilter["idVilleDepart"] = villedep._id;
         }
-    })
-};
-
-module.exports.reservation = (req, res) => {
-    if(!req.payload._id) // pas d'ID utilisateur existe dans le JWT
-        res.status(401).json({ message: "UnauthorizedError: private profile" });
-
-    else {
-        let reservation = new Reservation(); 
-    
-        reservation.nbPassagers = req.body.nbPassagers; 
-        reservation.idTrajet = req.body.idTrajet;
-        console.log('test');
         
-        User.findById(req.payload._id, (err,user) => {
-            
+        else if(!villedep) { // ville de départ n'existe pas
+        }
+
+        Ville.findOne({nom:req.body.villeArrivee}, (err,villearrivee) => {
             if (err)
-                res.json({success:false, msg:'error'}); 
-            if (!user)
-                res.json({success:false, msg:'User not found'}); 
+                res.json({success:false, msg : 'error 2'}); 
+            if (villearrivee)
+                searchFilter["idVilleArrivee"] = villearrivee._id;
+            else if(!villearrivee){ // ville arrivee n'existe pas
+                
+            }
 
-            reservation.idPassager = user._id; 
-            
-            reservation.save(err => {
-                if (err){
-                    res.json({success:false, msg:'Failed to add reservation'});
-                }
-                res.json({success:true, reservation : reservation});
-            })
+            Trajet.find(searchFilter)
+            .sort('-date')
+            .populate('idVilleDepart')
+            .populate('idVilleArrivee')
+            .exec((err, trajets) => {
+                if (err)
+                    res.json({succes:false, msg:'error'}); 
+                if (!trajets)
+                    res.json({succes:false, msg:'No trajets founds for this search'}); 
+                else {
+                    res.json({success:true, resultTrajets:trajets});
+                }        
+            });
+
         });
-    }
 
+    });
+
+    
 };
+
+module.exports.getTrajet = (req, res) => {
+    Trajet.findById(req.params.id)
+    .populate('idVilleDepart')
+    .populate('idVilleArrivee')
+    .populate('idConducteur')
+    .exec((err, result) => {
+        if(err)
+            res.json({success:false});
+        else if(result) 
+            res.json({success:true, result:result});
+        else if(!result)
+            res.json({success:false});
+    });
+}

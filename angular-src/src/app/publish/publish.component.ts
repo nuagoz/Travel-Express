@@ -4,7 +4,10 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { TrajetService, Trajet } from '../services/trajet.service';
 import { CityService, City } from '../services/city.service';
+import { Router } from '@angular/router';
 import { AmazingTimePickerService } from 'amazing-time-picker';
+import { ToastrService } from 'ngx-toastr';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-publish',
@@ -25,7 +28,14 @@ export class PublishComponent implements OnInit {
     villeArrivee:''
   };
 
-  constructor(private trajetserv: TrajetService, private cityserv: CityService, private atp: AmazingTimePickerService) { }
+  formError: Boolean;
+  msgError: String;
+
+  constructor(private trajetserv: TrajetService, 
+              private cityserv: CityService, 
+              private atp: AmazingTimePickerService, 
+              private toastr: ToastrService,
+              private router: Router) { }
 
   ngOnInit() {
     this.cityserv.getCities().subscribe(res => {
@@ -74,17 +84,21 @@ export class PublishComponent implements OnInit {
   }
 
   addTrajet() {
-    console.log(this.formDatas);
-    if(this.formDatas.villeDepart.nom)
-      this.formDatas.villeDepart = this.formDatas.villeDepart.nom;
+    let datas = _.clone(this.formDatas);
+    if(datas.villeDepart.nom)
+      datas.villeDepart = datas.villeDepart.nom;
 
-    if(this.formDatas.villeArrivee.nom)
-      this.formDatas.villeArrivee = this.formDatas.villeArrivee.nom;
+    if(datas.villeArrivee.nom)
+      datas.villeArrivee = datas.villeArrivee.nom;
 
-    this.trajetserv.addTrajet(this.formDatas).subscribe(res => {
-      console.log("OK ! ", res);
-      if(res.success === false) {
-
+    this.trajetserv.addTrajet(datas).subscribe(response => {
+      if(response.success === false) {
+        this.formError = true;
+        this.msgError = response.msg;
+      }
+      else if(response.success === true) {
+        this.router.navigateByUrl('/home');
+        this.toastr.success("Le trajet que vous avez proposé a été ajouté à la liste", "Trajet ajouté !", { timeOut: 3000 });
       }
     });
   }
